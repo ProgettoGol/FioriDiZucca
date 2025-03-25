@@ -1,0 +1,45 @@
+header {
+    background-image: url("../src/immagini/homepageSfondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    background-image: url("../src/immagini/GrilledCheeseFoodGIF.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 300px;
+    font-weight: bold;
+    text-shadow: 10px 10px #fc0;
+    color: #fff;
+    text-align: center;
+}
+
+#login {
+    background-color: #fc0;
+    color: #000;
+    /* height: 68px;
+    width: 231px; */
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "Roboto Condensed", sans-serif;
+    /* position: absolute;
+    top: 44px;
+    right: 48px; */
+}
+
+
+
+/* non funziona */
+/* #menu {
+    
+    opacity: 0
+    ;
+}
+#menu * {
+    opacity: 0.5;
+} */
