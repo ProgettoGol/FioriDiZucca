@@ -1,0 +1,37 @@
+#main-content {
+    /* Adding a linear gradient with reduced opacity on top of the background image will reduce the opacity of the image itself */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)), url("../src/immagini/tavolata.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30%;
+}
+
+.menu {
+    background-color: #2B1C00;
+}
+
+li {
+    /* "position: relative;" is needed in order to position each .icon while keeping "display: flex;" */
+    position: relative;
+    height: 10vw;
+}
+
+li p {
+    max-width: 75%;
+}
+
+.icon1 {
+    position: absolute;
+    width: 2vw;
+    left: 0;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.icon2 {
+    position: absolute;
+    width: 2vw;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%);
+}

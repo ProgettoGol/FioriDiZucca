@@ -1,0 +1,254 @@
+/* 
+ISSUES TO SOLVE:
+- Font size decreases too much as screen size get decreased
+- Page cannot be zoomed in on laptops: browsers don't actually zoom in, they simulate a smaller viewport.
+POSSIBLE SOLUTIONS:
+- Adjust --responsive-unit dynamically in javascript to follow a logarithmic scale
+- Add a base size in pixels to --responsive-unit (e.g. 1vw + 0.2px). This way content will still be responsive, but it will also be zoomed in.
+  I believe we had better create a responsive unit for text only, or any other content we need to be "zoomable" (there is no advantage in zooming in on paddings, borders, and margins)
+- Another solution would be to make the viewport scrollable as you zoom in (min-width e max-width)
+*/
+
+/* ROOT */
+* {
+    --light-green: #18A118;
+    --dark-green: #007100;
+    --yellow: #FFCC00;
+    --dark: #030303;
+    /* The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
+    /* Code must be written in javascript */
+    --responsive-unit: 1vw + 1px;
+}
+
+/* HTML SEMANTIC ELEMENTS */
+
+p {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* BOX MODEL */
+
+.margin-responsive-x-1 {
+    margin-left: var(--responsive-unit) !important;
+    margin-right: var(--responsive-unit) !important;
+}
+
+.margin-responsive-x-2 {
+    margin-left: calc(2 * var(--responsive-unit)) !important;
+    margin-right: calc(2 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-x-3 {
+    margin-left: calc(3 * var(--responsive-unit)) !important;
+    margin-right: calc(3 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-x-4 {
+    margin-left: calc(4 * var(--responsive-unit)) !important;
+    margin-right: calc(4 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-x-5 {
+    margin-left: calc(5 * var(--responsive-unit)) !important;
+    margin-right: calc(5 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-y-1 {
+    margin-top: var(--responsive-unit) !important;
+    margin-bottom: var(--responsive-unit) !important;
+}
+
+.margin-responsive-y-2 {
+    margin-top: calc(2 * var(--responsive-unit)) !important;
+    margin-bottom: calc(2 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-y-3 {
+    margin-top: calc(3 * var(--responsive-unit)) !important;
+    margin-bottom: calc(3 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-y-4 {
+    margin-top: calc(4 * var(--responsive-unit)) !important;
+    margin-bottom: calc(4 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-y-5 {
+    margin-top: calc(5 * var(--responsive-unit)) !important;
+    margin-bottom: calc(5 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-x-1 {
+    padding-left: var(--responsive-unit) !important;
+    padding-right: var(--responsive-unit) !important;
+}
+
+.padding-responsive-x-2 {
+    padding-left: calc(2 * var(--responsive-unit)) !important;
+    padding-right: calc(2 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-x-3 {
+    padding-left: calc(3 * var(--responsive-unit)) !important;
+    padding-right: calc(3 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-x-4 {
+    padding-left: calc(4 * var(--responsive-unit)) !important;
+    padding-right: calc(4 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-x-5 {
+    padding-left: calc(5 * var(--responsive-unit)) !important;
+    padding-right: calc(5 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-y-1 {
+    padding-top: var(--responsive-unit) !important;
+    padding-bottom: var(--responsive-unit) !important;
+}
+
+.padding-responsive-y-2 {
+    padding-top: calc(2 * var(--responsive-unit)) !important;
+    padding-bottom: calc(2 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-y-3 {
+    padding-top: calc(3 * var(--responsive-unit)) !important;
+    padding-bottom: calc(3 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-y-4 {
+    padding-top: calc(4 * var(--responsive-unit)) !important;
+    padding-bottom: calc(4 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-y-5 {
+    padding-top: calc(5 * var(--responsive-unit)) !important;
+    padding-bottom: calc(5 * var(--responsive-unit)) !important;
+}
+
+.border-responsive-1 {
+    border-width: calc(0.1 * var(--responsive-unit)) !important;
+}
+
+.border-responsive-2 {
+    border-width: calc(0.2 * var(--responsive-unit)) !important;
+}
+
+.border-responsive-3 {
+    border-width: calc(0.3 * var(--responsive-unit)) !important;
+}
+
+.border-responsive-4 {
+    border-width: calc(0.4 * var(--responsive-unit)) !important;
+}
+
+.border-responsive-5 {
+    border-width: calc(0.5 * var(--responsive-unit)) !important;
+}
+
+.rounded-responsive-1 {
+    border-radius: calc(0.5 * var(--responsive-unit)) !important;
+}
+
+.rounded-responsive-2 {
+    border-radius: calc(1 * var(--responsive-unit)) !important;
+}
+
+.rounded-responsive-3 {
+    border-radius: calc(1.5 * var(--responsive-unit)) !important;
+}
+
+.rounded-responsive-4 {
+    border-radius: calc(2 * var(--responsive-unit)) !important;
+}
+
+.rounded-responsive-5 {
+    border-radius: calc(2.5 * var(--responsive-unit)) !important;
+}
+
+/* TEXT SIZE */
+
+/* 300px */
+.text-xxl {
+    font-size: calc(25 * var(--responsive-unit)) !important;
+}
+
+/* 60px */
+.text-xl {
+    font-size: calc(5 * var(--responsive-unit)) !important;
+}
+
+/* 48px */
+.text-l {
+    font-size: calc(4 * var(--responsive-unit)) !important;
+}
+
+/* 36px */
+.text-m {
+    font-size: calc(3 * var(--responsive-unit)) !important;
+}
+
+/* 24px */
+.text-s {
+    font-size: calc(2 * var(--responsive-unit)) !important;
+}
+
+/* 12px */
+.text-xs {
+    font-size: calc(1 * var(--responsive-unit)) !important;
+}
+
+/* COLORS */
+
+.border-dark-green {
+    border-color: var(--dark-green) !important;
+}
+
+.border-light-green {
+    border-color: var(--light-green) !important;
+}
+
+.text-dark {
+    color: var(--dark) !important;
+}
+
+.text-yellow {
+    color: var(--yellow) !important;
+}
+
+.text-dark-green {
+    color: var(--dark-green) !important;
+}
+
+.text-light-green {
+    color: var(--light-green) !important;
+}
+
+.background-yellow {
+    background-color: var(--yellow) !important;
+}
+
+/* FONTS */
+
+.indie-flower-regular {
+    font-family: "Indie Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-condensed-regular {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
