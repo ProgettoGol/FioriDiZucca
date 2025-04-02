@@ -1,0 +1,29 @@
+/* MENU */
+/* DEBUG: da eliminare quando il menu sarà aggiunto dinamicamente (oppure potrebbe essere aggiunto al template) */
+
+.icon {
+    width: 2vw;
+}
+
+/* MENU */
+
+#riserva_un_tavolo {
+    background-image: url("../src/immagini/Reservation.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 10%;
+}
+
+#riserva_un_tavolo section textarea {
+    resize: none;
+}
+
+/* #riserva_un_tavolo section select {
+    background-image: none;
+} */
+
+#come_raggiungerci {
+    background-image: url("../src/immagini/backgroundStelle.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

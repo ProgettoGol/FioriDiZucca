@@ -1,4 +1,13 @@
-#main-content {
+/* MENU */
+/* DEBUG: da eliminare quando il menu sarà aggiunto dinamicamente (oppure potrebbe essere aggiunto al template) */
+
+.icon {
+    width: 2vw;
+}
+
+/* MENU */
+
+#cosa_offriamo {
     /* Adding a linear gradient with reduced opacity on top of the background image will reduce the opacity of the image itself */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)), url("../src/immagini/tavolata.png");
     background-size: cover;
@@ -13,7 +22,6 @@
 li {
     /* "position: relative;" is needed in order to position each .icon while keeping "display: flex;" */
     position: relative;
-    height: 10vw;
 }
 
 li p {

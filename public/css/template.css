@@ -14,13 +14,23 @@ POSSIBLE SOLUTIONS:
     --light-green: #18A118;
     --dark-green: #007100;
     --yellow: #FFCC00;
+    --yellow-subtle: #FFCC0080;
+    --grey: #4F4F4F;
     --dark: #030303;
+    --light: #FFFFFF;
+    --transparent: #FFFFFF00;
     /* The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
     /* Code must be written in javascript */
-    --responsive-unit: 1vw + 1px;
+    --responsive-unit: 1vw;
+    --responsive-unit-visible: var(--responsive-unit) + 1px;
 }
 
 /* HTML SEMANTIC ELEMENTS */
+
+body {
+    /* DEBUG: Trova un modo per bloccare la responsiveness degli elementi al raggiungimento della min-width */
+    min-width: 300px;
+}
 
 p {
     margin: 0;
@@ -37,9 +47,29 @@ ul {
 
 /* BOX MODEL */
 
+.margin-responsive-1 {
+    margin: calc(1 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-2 {
+    margin: calc(2 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-3 {
+    margin: calc(3 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-4 {
+    margin: calc(4 * var(--responsive-unit)) !important;
+}
+
+.margin-responsive-5 {
+    margin: calc(5 * var(--responsive-unit)) !important;
+}
+
 .margin-responsive-x-1 {
-    margin-left: var(--responsive-unit) !important;
-    margin-right: var(--responsive-unit) !important;
+    margin-left: calc(1 * var(--responsive-unit)) !important;
+    margin-right: calc(1 * var(--responsive-unit)) !important;
 }
 
 .margin-responsive-x-2 {
@@ -63,8 +93,8 @@ ul {
 }
 
 .margin-responsive-y-1 {
-    margin-top: var(--responsive-unit) !important;
-    margin-bottom: var(--responsive-unit) !important;
+    margin-top: calc(1 * var(--responsive-unit)) !important;
+    margin-bottom: calc(1 * var(--responsive-unit)) !important;
 }
 
 .margin-responsive-y-2 {
@@ -87,9 +117,29 @@ ul {
     margin-bottom: calc(5 * var(--responsive-unit)) !important;
 }
 
+.padding-responsive-1 {
+    padding: calc(1 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-2 {
+    padding: calc(2 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-3 {
+    padding: calc(3 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-4 {
+    padding: calc(4 * var(--responsive-unit)) !important;
+}
+
+.padding-responsive-5 {
+    padding: calc(5 * var(--responsive-unit)) !important;
+}
+
 .padding-responsive-x-1 {
-    padding-left: var(--responsive-unit) !important;
-    padding-right: var(--responsive-unit) !important;
+    padding-left: calc(1 * var(--responsive-unit)) !important;
+    padding-right: calc(1 * var(--responsive-unit)) !important;
 }
 
 .padding-responsive-x-2 {
@@ -113,8 +163,8 @@ ul {
 }
 
 .padding-responsive-y-1 {
-    padding-top: var(--responsive-unit) !important;
-    padding-bottom: var(--responsive-unit) !important;
+    padding-top: calc(1 * var(--responsive-unit)) !important;
+    padding-bottom: calc(1 * var(--responsive-unit)) !important;
 }
 
 .padding-responsive-y-2 {
@@ -177,36 +227,68 @@ ul {
     border-radius: calc(2.5 * var(--responsive-unit)) !important;
 }
 
+/* OBJECT SIZE */
+
+.object-xxl {
+    width: 100% !important;
+    height: calc(30 * var(--responsive-unit)) !important;
+}
+
+.object-xl {
+    width: 100% !important;
+    height: calc(25 * var(--responsive-unit)) !important;
+}
+
+.object-l {
+    width: 100% !important;
+    height: calc(20 * var(--responsive-unit)) !important;
+}
+
+.object-m {
+    width: 100% !important;
+    height: calc(15 * var(--responsive-unit)) !important;
+}
+
+.object-s {
+    width: 100% !important;
+    height: calc(10 * var(--responsive-unit)) !important;
+}
+
+.object-xs {
+    width: 100% !important;
+    height: calc(5 * var(--responsive-unit)) !important;
+}
+
 /* TEXT SIZE */
 
 /* 300px */
 .text-xxl {
-    font-size: calc(25 * var(--responsive-unit)) !important;
+    font-size: calc(25 * var(--responsive-unit-visible)) !important;
 }
 
 /* 60px */
 .text-xl {
-    font-size: calc(5 * var(--responsive-unit)) !important;
+    font-size: calc(5 * var(--responsive-unit-visible)) !important;
 }
 
 /* 48px */
 .text-l {
-    font-size: calc(4 * var(--responsive-unit)) !important;
+    font-size: calc(4 * var(--responsive-unit-visible)) !important;
 }
 
 /* 36px */
 .text-m {
-    font-size: calc(3 * var(--responsive-unit)) !important;
+    font-size: calc(3 * var(--responsive-unit-visible)) !important;
 }
 
 /* 24px */
 .text-s {
-    font-size: calc(2 * var(--responsive-unit)) !important;
+    font-size: calc(2 * var(--responsive-unit-visible)) !important;
 }
 
 /* 12px */
 .text-xs {
-    font-size: calc(1 * var(--responsive-unit)) !important;
+    font-size: calc(1 * var(--responsive-unit-visible)) !important;
 }
 
 /* COLORS */
@@ -217,6 +299,14 @@ ul {
 
 .border-light-green {
     border-color: var(--light-green) !important;
+}
+
+.border-grey {
+    border-color: var(--grey) !important;
+}
+
+.text-light {
+    color: var(--light) !important;
 }
 
 .text-dark {
@@ -237,6 +327,18 @@ ul {
 
 .background-yellow {
     background-color: var(--yellow) !important;
+}
+
+.background-yellow-subtle {
+    background-color: var(--yellow-subtle) !important;
+}
+
+.background-dark {
+    background-color: var(--dark) !important;
+}
+
+.background-transparent {
+    background-color: var(--transparent) !important;
 }
 
 /* FONTS */

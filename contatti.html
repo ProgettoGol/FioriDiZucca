@@ -4,49 +4,247 @@
 <head>
     <title>Contatti</title>
     <meta charset="UTF-8">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+    <!-- roboto condensed, indie flower fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" 
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/css/template.css">
+    <link rel="stylesheet" href="/public/css/contatti.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <button type="button">Menu</button>
-            <button type="button">Login</button>
-            <a href="login.html">Area personale</a>
-            <a href="cosaoffriamo.html">Cosa offriamo</a>
-            <a href="#riserva_un_tavolo">Riserva un tavolo</a>
+    <div id="riserva_un_tavolo" class="p-0 container-fluid">
 
-        </nav>
+        <header>
+            <div class="m-0 row padding-responsive-y-3">
+                <div class="p-0 col-2 d-flex align-items-center justify-content-start padding-responsive-x-3">
+                    <nav>
+                        <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                        </button>
 
-    </header>
-    <section>
-        <h2 id="riserva_un_tavolo">Riserva un tavolo</h2>
-        <form>
-            <!-- si può tenere aperto? -->
-            <input id="data" type="date">
-            <!-- modificare per ogni 15 minuti -->
-            <input type="time">
-            <input type="text" name="name" value="" placeholder="Nome">
-            <input type="text" name="cognome" value="" placeholder="Cognome">
-            <input type="text" name="email" value="" placeholder="indirizzo email">
-            <textarea type="text" placeholder="inserisci una nota"></textarea>
-            <button type="submit">Submit</button>
+                        <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                            <div class="m-0 row padding-responsive-y-3">
+                                <div class="p-0 col-12 d-flex align-items-center justify-content-start padding-responsive-x-3">
+                                    <span>
+                                        <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
 
-        </form>
-        <!-- <img src="src/immagini/Reservation.gif" title="mangi" alt="non mangi" /> -->
-    </section>
+                            <ul class="p-0 container-fluid">
+                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs" href="cosaoffriamo.html">Cosa offriamo</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs" href="#riserva_un_tavolo">Riserva un tavolo</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
 
-    <section>
-        <h2 id="come_raggiungerci">Come raggiungerci</h2>
-        <p>Via delle Conce 20, 00154, Roma(RM)</p>
-        <a href="tel:+39062548651">062548651</a>
-        <a href="mailto:fioridizucca@hotmail.it">fioridizucca@hotmail.it</a>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.8708960107847!2d12.4756713754788!3d41.8741240712421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f602c006d51b5%3A0x63c7afa1af787a0f!2sVia%20delle%20Conce%2C%2020%2C%2000154%20Roma%20RM!5e0!3m2!1sen!2sit!4v1742290815830!5m2!1sen!2sit"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <!-- <img src="src/immagini/backgroundStelle.gif" title="sfondo stelle" alt="non sfondo stelle" /> -->
-    </section>
+                    </nav>
+                </div>
+
+                <div class="p-0 col-8">
+                    <h2 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center">Riserva un tavolo</h2>
+                </div>
+
+                <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
+                <div class="p-0 col-2 d-flex align-items-center justify-content-end padding-responsive-x-3">
+                    <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
+                        <a class="list-group-item roboto-condensed-regular text-s text-dark" href="login.html">LOGIN</a>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <form method="get">
+                <div class="m-0 row padding-responsive-y-5">
+                    <div class="p-0 col-2 col-lg-3"></div>
+                    <div class="p-0 col-8 col-lg-6 d-flex flex-column">
+
+                        <!-- DEBUG: risolvere il problema della grandezza della freccia del select -->
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-12">
+                                <!-- JAVASCRIPT: Se possibile, tenere aperto -->
+                                <!-- JAVASCRIPT: Fare in modo che non si possano selezionare date precedenti alla data corrente -->
+                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" required>
+                            </div>
+                        </div>
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-12">
+                                <!-- JAVASCRIPT: Fare in modo che si possano selezionare solo gli orari possibili in base alla data selezionata e alle prenotazioni già fatte -->
+                                <!-- <input class="p-0 form-control border-grey indie-flower-regular text-dark text-s padding-responsive-1" type="time" name="time" step="900"> -->
+                                <select class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" required>
+                                    <option disabled selected hidden value="">Orario *</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:15">09:15</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="09:45">09:45</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:15">10:15</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="10:45">10:45</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:15">11:15</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="11:45">11:45</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:15">12:15</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="12:45">12:45</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:15">13:15</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="13:45">13:45</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:15">14:15</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="14:45">14:45</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:15">15:15</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="15:45">15:45</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:15">16:15</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="16:45">16:45</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:15">17:15</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="17:45">17:45</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:15">18:15</option>
+                                    <option value="18:30">18:30</option>
+                                    <option value="18:45">18:45</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:15">19:15</option>
+                                    <option value="19:30">19:30</option>
+                                    <option value="19:45">19:45</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:15">20:15</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="20:45">20:45</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-6">
+                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" required>
+                            </div>
+
+                            <div class="p-0 col-6">
+                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" required>
+                            </div>
+                        </div>
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-12">
+                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" required>
+                            </div>
+                        </div>
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-12">
+                                <textarea class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="m-0 row margin-responsive-y-1">
+                            <div class="p-0 col-12">
+                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="submit">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="p-0 col-2 col-lg-3"></div> 
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div id="come_raggiungerci" class="p-0 container-fluid">
+
+        <header>
+            <div class="m-0 row padding-responsive-y-3">
+                <div class="p-0 col-12 d-flex align-items-start justify-content-center">
+                    <h2 class="roboto-condensed-regular text-light text-xl">Come raggiungerci</h2>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="m-0 row padding-responsive-y-3">
+                <div class="p-0 col-12 d-flex justify-content-center">
+                    <div class="m-0 row">
+                        <div class="p-0 col-12 d-flex flex-column justify-content-center padding-responsive-x-3">
+                            <p class="list-group-item roboto-condensed-regular text-s text-light">Via delle Conce 20, 00154, Roma (RM)</p>
+                            <a class="list-group-item roboto-condensed-regular text-s text-light" href="tel:+39062548651">062548651</a>
+                            <a class="list-group-item roboto-condensed-regular text-s text-light" href="mailto:fioridizucca@hotmail.it">fioridizucca@hotmail.it</a>
+                        </div>
+                    </div>
+                    <div class="w-50 m-0 row">
+                        <div class="p-0 col-12 padding-responsive-x-3">
+                            <iframe class="object-xxl rounded-responsive-1"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.8708960107847!2d12.4756713754788!3d41.8741240712421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f602c006d51b5%3A0x63c7afa1af787a0f!2sVia%20delle%20Conce%2C%2020%2C%2000154%20Roma%20RM!5e0!3m2!1sen!2sit!4v1742290815830!5m2!1sen!2sit"
+                                width="" height="" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
     <footer>
         <section>
             <p>Fiori di Zucca S.r.l ©</p>
