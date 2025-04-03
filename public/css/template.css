@@ -29,6 +29,7 @@ POSSIBLE SOLUTIONS:
 
 body {
     /* DEBUG: Trova un modo per bloccare la responsiveness degli elementi al raggiungimento della min-width */
+    /* DEBUG: Trova un modo per aggiustare l'altezza della pagina, che al ridursi della larghezza diventa troppo 'corta' */
     min-width: 300px;
 }
 
