@@ -16,9 +16,14 @@ POSSIBLE SOLUTIONS:
     --yellow: #FFCC00;
     --yellow-subtle: #FFCC0080;
     --grey: #4F4F4F;
+    --brown: #2B1C00;
     --dark: #030303;
     --light: #FFFFFF;
     --transparent: #FFFFFF00;
+
+    /* DEFAULT VALUES */
+    --text-shadow-color: var(--dark);
+
     /* The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
     /* Code must be written in javascript */
     --responsive-unit: 1vw;
@@ -228,11 +233,37 @@ ul {
     border-radius: calc(2.5 * var(--responsive-unit)) !important;
 }
 
+/* TEXT SHADOW */
+
+.text-shadow-responsive-1 {
+    text-shadow: calc(1 * var(--responsive-unit)) calc(1 * var(--responsive-unit)) var(--text-shadow-color);
+}
+
+.text-shadow-responsive-2 {
+    text-shadow: calc(2 * var(--responsive-unit)) calc(2 * var(--responsive-unit)) var(--text-shadow-color);
+}
+
+.text-shadow-responsive-3 {
+    text-shadow: calc(3 * var(--responsive-unit)) calc(3 * var(--responsive-unit)) var(--text-shadow-color);
+}
+
+.text-shadow-responsive-4 {
+    text-shadow: calc(4 * var(--responsive-unit)) calc(4 * var(--responsive-unit)) var(--text-shadow-color);
+}
+
+.text-shadow-responsive-5 {
+    text-shadow: calc(5 * var(--responsive-unit)) calc(5 * var(--responsive-unit)) var(--text-shadow-color);
+}
+
+.text-shadow-yellow {
+    --text-shadow-color: var(--yellow);
+}
+
 /* OBJECT SIZE */
 
 .object-xxl {
     width: 100% !important;
-    height: calc(30 * var(--responsive-unit)) !important;
+    height: calc(60 * var(--responsive-unit)) !important;
 }
 
 .object-xl {
@@ -264,7 +295,7 @@ ul {
 
 /* 300px */
 .text-xxl {
-    font-size: calc(25 * var(--responsive-unit-visible)) !important;
+    font-size: calc(20 * var(--responsive-unit-visible)) !important;
 }
 
 /* 60px */
@@ -326,6 +357,10 @@ ul {
     color: var(--light-green) !important;
 }
 
+.background-brown {
+    background-color: var(--brown) !important;
+}
+
 .background-yellow {
     background-color: var(--yellow) !important;
 }
@@ -353,5 +388,17 @@ ul {
 .roboto-condensed-regular {
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
+    font-style: normal;
+}
+
+.oswald-regular {
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.oswald-bold {
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
     font-style: normal;
 }

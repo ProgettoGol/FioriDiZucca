@@ -1,8 +1,89 @@
-<!-- DEBUG: da cambiare titolo e href -->
+<!-- DEBUG: trovare un minimo comune multiplo tra i vari menu e risolvere il problema del posizionamento dei div container -->
+
+<!-- INDEX.HTML -->
+
+<header>
+    <div id="fiori_di_zucca" class="p-0 container-fluid">
+        <div class="m-0 row padding-responsive-y-3">
+            <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                <nav>
+                    <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                        <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                    </button>
+
+                    <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                        <div class="m-0 row padding-responsive-y-3">
+                            <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                <span>
+                                    <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                        <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <ul class="p-0 container-fluid">
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="cosaoffriamo.html">Cosa offriamo</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="p-0 col-8">
+                <h1 class="object-xxl oswald-bold text-xxl text-light text-shadow-responsive-1 text-shadow-yellow d-flex align-items-center justify-content-center text-center">Fiori di Zucca</h1>
+            </div>
+
+            <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
+            <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
+                <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
+                    <a class="list-group-item roboto-condensed-regular text-s text-dark" href="login.html">LOGIN</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- COSAOFFRIAMO.HTML -->
 
 <header>
     <div class="m-0 row padding-responsive-y-3">
-        <div class="p-0 col-2 d-flex align-items-center justify-content-start padding-responsive-x-3">
+        <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
             <nav>
                 <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
                     <img class="object-xs" src="public/src/immagini/Icongridview.png">
@@ -10,7 +91,84 @@
 
                 <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
                     <div class="m-0 row padding-responsive-y-3">
-                        <div class="p-0 col-12 d-flex align-items-center justify-content-start padding-responsive-x-3">
+                        <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                            <span>
+                                <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                    <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <ul class="p-0 container-fluid">
+                        <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                    <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                </div>
+                            </div>
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                    <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                    <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                </div>
+                            </div>
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                    <a class="list-group-item text-xs" href="#">Cosa offriamo</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                    <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                </div>
+                            </div>
+                            <div class="m-0 row">
+                                <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                    <a class="list-group-item text-xs" href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="p-0 col-8">
+            <h1 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center text-center">Cosa Offriamo</h2>
+        </div>
+
+        <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
+        <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
+            <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
+                <a class="list-group-item roboto-condensed-regular text-s text-dark" href="login.html">LOGIN</a>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- CONTATTI.HTML -->
+
+<header>
+    <div class="m-0 row padding-responsive-y-3">
+        <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+            <nav>
+                <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                    <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                </button>
+
+                <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                    <div class="m-0 row padding-responsive-y-3">
+                        <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
                             <span>
                                 <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
                                     <img class="object-xs" src="public/src/immagini/Icongridview.png">
@@ -63,11 +221,11 @@
         </div>
 
         <div class="p-0 col-8">
-            <h2 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center">Riserva un tavolo</h2>
+            <h1 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center text-center">Riserva un tavolo</h2>
         </div>
 
         <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
-        <div class="p-0 col-2 d-flex align-items-center justify-content-end padding-responsive-x-3">
+        <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
             <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
                 <a class="list-group-item roboto-condensed-regular text-s text-dark" href="login.html">LOGIN</a>
             </button>
