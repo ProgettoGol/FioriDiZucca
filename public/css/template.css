@@ -1,5 +1,5 @@
 /* 
-ISSUES TO SOLVE:
+DEBUG:
 - Font size decreases too much as screen size get decreased
 - Page cannot be zoomed in on laptops: browsers don't actually zoom in, they simulate a smaller viewport.
 POSSIBLE SOLUTIONS:
@@ -24,8 +24,7 @@ POSSIBLE SOLUTIONS:
     /* DEFAULT VALUES */
     --text-shadow-color: var(--dark);
 
-    /* The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
-    /* Code must be written in javascript */
+    /* JAVASCRIPT: The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
     --responsive-unit: 1vw;
     --responsive-unit-visible: var(--responsive-unit) + 1px;
 }

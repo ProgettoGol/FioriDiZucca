@@ -14,28 +14,3 @@
     background-repeat: no-repeat;
     background-position: 30%;
 }
-
-li {
-    /* "position: relative;" is needed in order to position each .icon while keeping "display: flex;" */
-    position: relative;
-}
-
-li p {
-    max-width: 75%;
-}
-
-.icon1 {
-    position: absolute;
-    width: 2vw;
-    left: 0;
-    top:50%;
-    transform: translateY(-50%);
-}
-
-.icon2 {
-    position: absolute;
-    width: 2vw;
-    right: 0;
-    top:50%;
-    transform: translateY(-50%);
-}
