@@ -1,6 +1,9 @@
 .card {
-    background-color: rgb(243 138 18 / 69%);
     min-height: 40vh;
+}
+
+.icon {
+    width: 2vw;
 }
 
 .card-col {
@@ -8,4 +11,11 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+}
+
+#areapersonale {
+    background-image: url("../src/immagini/backgroundPini.gif");
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

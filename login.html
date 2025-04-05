@@ -10,35 +10,99 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/login.css">
+    <link rel="stylesheet" href="public/css/template.css">
 </head>
 
 <body>
     <header>
-        <nav>
-            <button type="button">Menu</button>
-            <button type="button">Login</button>
-            <a href="#">Area personale</a>
-            <a href="cosaoffriamo.html">Cosa offriamo</a>
-            <a href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+        <div class="m-0 row padding-responsive-y-3">
+            <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                <nav>
+                    <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                        <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                    </button>
 
-        </nav>
+                    <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1"
+                        id="offcanvas">
+                        <div class="m-0 row padding-responsive-y-3">
+                            <div
+                                class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                <span>
+                                    <button type="button" class="p-0 border-0 background-transparent d-flex"
+                                        data-bs-dismiss="offcanvas">
+                                        <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <ul class="p-0 container-fluid">
+                            <li
+                                class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="#">Cosa offriamo</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li
+                                class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div
+                                        class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs"
+                                            href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
     </header>
     <main>
         <section>
-            <div class="card text-center mb-3" style="width: 18rem;">
+            <div class="card text-center padding-responsive-1">
                 <form>
                     <div class="card-body">
-                        <h5 class="card-title">Login</h5>
+                        <h5 class="card-title roboto-condensed-regular-bold text-s text-dark">LOGIN</h5>
                         <input type="text" id="username" class="form-control" placeholder="username" aria-label="username">
                         <input type="password" id="password" class="form-control" placeholder="password" aria-label="password">
-                        <button type="submit" class="btn btn-primary" onclick="website.accediRegistrati()">
+                        <button type="submit" class="btn btn-primary rounded-responsive-1 margin-responsive-x-1" onclick="website.accediRegistrati()">
                             Accedi
                         </button>
                         <!-- fare un a href con un btn btn-primary -->
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary rounded-responsive-1 margin-responsive-x-1">
                             Registrati
                         </button>
-
                     </div>
                 </form>
             </div>

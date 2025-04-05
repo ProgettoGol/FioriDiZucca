@@ -10,181 +10,299 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/areapersonale.css">
+    <link rel="stylesheet" href="public/css/template.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <button type="button">Menu</button>
-            <button type="button">Login</button>
-            <a href="#">Area personale</a>
-            <a href="cosaoffriamo.html">Cosa offriamo</a>
-            <a href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+    <div class="container-fluid" id="areapersonale">
+        <header>
+            <div class="m-0 row padding-responsive-y-3">
+                <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                    <nav>
+                        <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                        </button>
 
-        </nav>
-    </header>
-    <main>
-        <section>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-8 text-start">
-                                <div class="card-body">
-                                    <p>Nome Cognome</p>
-                                    <p>25000 punti</p>
+                        <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1"
+                            id="offcanvas">
+                            <div class="m-0 row padding-responsive-y-3">
+                                <div
+                                    class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                    <span>
+                                        <button type="button" class="p-0 border-0 background-transparent d-flex"
+                                            data-bs-dismiss="offcanvas">
+                                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                        </button>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="col-md-4 align-item-end">
-                                <img src="src/immagini/qrcodeProva.png" title="codice QR" alt="non codice QR" />
+
+                            <ul class="p-0 container-fluid">
+                                <li
+                                    class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li
+                                    class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs" href="#">Cosa offriamo</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li
+                                    class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                            <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                        </div>
+                                    </div>
+                                    <div class="m-0 row">
+                                        <div
+                                            class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                            <a class="list-group-item text-xs"
+                                                href="contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+        </header>
+        <main>
+            <section>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                            <div class="row g-0">
+                                <div class="col-md-8 text-start">
+                                    <div class="card-body">
+                                        <p>Nome Cognome</p>
+                                        <p>25000 punti</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 align-item-end">
+                                    <img src="public/src/immagini/qrcodeProva.png" title="codice QR"
+                                        alt="non codice QR" />
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle d-flex">
+                                <div class="card-body">
+                                    <p>Sconto 10&euro;</p>
+                                    <p>100 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco"/>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Sconto 20&euro;</p>
+                                    <p>200 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Sconto 500&euro;</p>
+                                    <p>500 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Pranzo offerto</p>
+                                    <p>1000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Cena offerta</p>
+                                    <p>2000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Pranzo + Cena</p>
+                                    <p>5000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Crea il tuo piatto</p>
+                                    <p>10000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Tavolo fisso</p>
+                                    <p>20000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>Dai il tuo nome ad un piatto</p>
+                                    <p>50000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div
+                                class="card card-col margin-responsive-x-2 margin-responsive-y-2 rounded-responsive-2 background-yellow-subtle">
+                                <div class="card-body">
+                                    <p>10&#37; delle azioni su Fiori di Zucca srl</p>
+                                    <p>100000 punti</p>
+                                </div>
+                                <img src="public/src/immagini/premio.png" id="sbloccato" title="premio"
+                                    alt="non premio" />
+                                <img src="public/src/immagini/blocco.png" id="bloccato" title="blocco"
+                                    alt="non blocco" />
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </main>
+    </div>
+    <footer>
+        <div class="p-0 container-fluid border-top border-responsive-5 border-dark-green">
+            <div class="m-0 row padding-responsive-y-1">
+                <div class="p-0 col-4 d-flex justify-content-start align-items-center padding-responsive-x-4">
+                    <section class="text-start text-xs">
+                        <p>Fiori di Zucca S.r.l ©</p>
+                        <p>P.IVA 063234589</p>
+
+                    </section>
+                </div>
+                <div class="p-0 col-4 d-flex justify-content-center align-items-center">
+                    <section class="text-center text-xs">
+                        <p>Roma, via delle Conce, 20, 00154, Roma (RM)</p>
+                        <p>Lunedì-Venerdì (ore: 9.00-21.00)</p>
+                        <p>Sabato (ore: 9.00-13.00)</p>
+                    </section>
+                </div>
+                <div class="p-0 col-4 d-flex justify-content-end align-items-center padding-responsive-x-4">
+                    <section class="text-center text-xs">
+                        <ul>
+                            <li class="list-group-item text-center">
+                                <a class="list-group-item" href="#">Homepage</a>
+                            </li>
+                            <li class="list-group-item text-center">
+                                <a class="list-group-item" href="contatti.html#come_raggiungerci">Contatti</a>
+                            </li>
+                            <li class="list-group-item text-center">
+                                <a class="list-group-item" href="privacy.html">Privacy Policy</a>
+                            </li>
+                            <li class="list-group-item text-center">
+                                <a class="list-group-item" href="cookie_policy.html">Cookie Policy</a>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
             </div>
-        </section>
-        <section>
-            <section>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Sconto 10&euro;</p>
-                                <p>100 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Sconto 20&euro;</p>
-                                <p>200 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Sconto 500&euro;</p>
-                                <p>500 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Pranzo offerto</p>
-                                <p>1000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>              
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Cena offerta</p>
-                                <p>2000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-               
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Pranzo + Cena</p>
-                                <p>5000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-            <section>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Crea il tuo piatto</p>
-                                <p>10000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>                
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Tavolo fisso</p>
-                                <p>20000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-
-                
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>Dai il tuo nome ad un piatto</p>
-                                <p>50000 punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <div class="card card-col">
-                            <div class="card-body">
-                                <p>10&#37; delle azioni su Fiori di Zucca srl</p>
-                                <p>100000gi punti</p>
-                            </div>
-                            <img src="src/immagini/premio.png" id="sbloccato" title="premio" alt="non premio" />
-                            <img src="src/immagini/blocco.png" id="bloccato" title="blocco" alt="non blocco" />
-                        </div>
-                        <div class="col-4"></div>
-                    </div>
-                </div>
-            </section>
-        </section>
-        <!-- <img src="src/immagini/backgroundPini.gif" title="pini" alt="non pini" /> -->
-    </main>
-    <footer>
-        <section>
-            <p>Fiori di Zucca S.r.l ©</p>
-            <p>P.IVA 063234589</p>
-        </section>
-        <section>
-            <p>Roma, via delle Conce, 20, 00154, Roma (RM)</p>
-            <p>Lunedì-Venerdì (ore: 9.00-21.00)</p>
-            <p>Sabato (ore: 9.00-13.00)</p>
-        </section>
-        <section>
-            <a href="index.html">Homepage</a>
-            <a href="contatti.html#come_raggiungerci">Contatti</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="cookiePolicy">Cookie Policy</a>
-        </section>
+        </div>
     </footer>
 </body>
 
