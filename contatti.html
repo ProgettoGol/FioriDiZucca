@@ -17,6 +17,12 @@
 
     <link rel="stylesheet" href="/public/css/template.css">
     <link rel="stylesheet" href="/public/css/contatti.css">
+
+    <script src="public/src/javascript/HTTP/HttpRequest.js" defer></script>
+    <script src="public/src/javascript/HTTP/HttpResponse.js" defer></script>
+    <script src="public/src/javascript/Server/SimulatedServer.js" defer></script>
+    <script src="public/src/javascript/Server/SimulatedDatabase.js" defer></script>
+    <script src="public/src/javascript/contatti.js" defer></script>
 </head>
 
 <body>
@@ -98,7 +104,7 @@
         </header>
 
         <section>
-            <form method="get">
+            <form>
                 <div class="m-0 row padding-responsive-y-5">
                     <div class="p-0 col-2 col-lg-3"></div>
                     <div class="p-0 col-8 col-lg-6 d-flex flex-column">
@@ -108,14 +114,12 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <!-- JAVASCRIPT: Fare in modo che non si possano selezionare date precedenti alla data corrente -->
-                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" required>
+                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="datePicker.onDateSelection()" required>
                             </div>
                         </div>
 
-                        <div class="m-0 row margin-responsive-y-1">
+                        <div class="form-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <!-- JAVASCRIPT: Fare in modo che si possano selezionare solo gli orari possibili in base alla data selezionata e alle prenotazioni già fatte -->
                                 <select class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" required>
                                     <option disabled selected hidden value="">Orario *</option>
                                     <option value="09:00">09:00</option>
@@ -170,7 +174,7 @@
                             </div>
                         </div>
 
-                        <div class="m-0 row margin-responsive-y-1">
+                        <div class="form-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-6">
                                 <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" required>
                             </div>
@@ -180,21 +184,21 @@
                             </div>
                         </div>
 
-                        <div class="m-0 row margin-responsive-y-1">
+                        <div class="form-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" required>
                             </div>
                         </div>
 
-                        <div class="m-0 row margin-responsive-y-1">
+                        <div class="form-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <textarea class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
                             </div>
                         </div>
 
-                        <div class="m-0 row margin-responsive-y-1">
+                        <div class="form-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="submit">Submit</button>
+                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="onFormSubmit()">Submit</button>
                             </div>
                         </div>
 
