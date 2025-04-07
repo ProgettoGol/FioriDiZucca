@@ -114,13 +114,13 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="datePicker.onDateSelection()" required>
+                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="datePicker.onDateSelection()" required>
                             </div>
                         </div>
 
-                        <div class="form-js m-0 row margin-responsive-y-1">
+                        <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <select class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" required>
+                                <select id="time" class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" required>
                                     <option disabled selected hidden value="">Orario *</option>
                                     <option value="09:00">09:00</option>
                                     <option value="09:15">09:15</option>
@@ -174,31 +174,37 @@
                             </div>
                         </div>
 
-                        <div class="form-js m-0 row margin-responsive-y-1">
+                        <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-6">
-                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" required>
+                                <input id="name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" required>
                             </div>
 
                             <div class="p-0 col-6">
-                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" required>
+                                <input id="last_name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" required>
                             </div>
                         </div>
 
-                        <div class="form-js m-0 row margin-responsive-y-1">
+                        <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <input class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" required>
+                                <input id="email" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" required>
                             </div>
                         </div>
 
-                        <div class="form-js m-0 row margin-responsive-y-1">
+                        <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <textarea class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
+                                <textarea id="message" class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
                             </div>
                         </div>
 
-                        <div class="form-js m-0 row margin-responsive-y-1">
+                        <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="onFormSubmit()">Submit</button>
+                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="formHandler.onFormSubmit()">Submit</button>
+                            </div>
+                        </div>
+
+                        <div id="result" class="object-xs m-0 row margin-responsive-y-1" role="alert">
+                            <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
                             </div>
                         </div>
 

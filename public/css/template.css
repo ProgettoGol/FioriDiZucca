@@ -372,6 +372,10 @@ ul {
     background-color: var(--dark) !important;
 }
 
+.background-light {
+    background-color: var(--light) !important;
+}
+
 .background-transparent {
     background-color: var(--transparent) !important;
 }
@@ -381,6 +385,12 @@ ul {
 .indie-flower-regular {
     font-family: "Indie Flower", sans-serif;
     font-weight: 400;
+    font-style: normal;
+}
+
+.indie-flower-bold {
+    font-family: "Indie Flower", sans-serif;
+    font-weight: bold;
     font-style: normal;
 }
 
