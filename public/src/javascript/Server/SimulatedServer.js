@@ -75,8 +75,6 @@ class SimulatedServer {
                     throw new HttpResponse(400, "Bad Request")
                 }
 
-                // IMPLEMENT: orari inferiori all'orario corrente non validi
-
                 // PUT request handling
                 try {
                     this.database.updateResource(item, key, body)
