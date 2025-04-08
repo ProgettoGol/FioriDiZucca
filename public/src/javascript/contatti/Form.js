@@ -1,6 +1,6 @@
 class Form {
-    constructor(datePicker) {
-        this.datePicker = datePicker;
+    constructor() {
+        this.datePicker = new DatePicker();
         this.dateInput = this.datePicker.dateInput;
         this.timeInput = document.getElementById("time");
         this.nameInput = document.getElementById("name");
