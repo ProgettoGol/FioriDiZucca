@@ -15,15 +15,19 @@ class HttpRequest {
     handleResponse(httpResponse, ...callbacks) {
         switch(httpResponse.code) {
             case 200: {
-                callbacks[0]()
+                callbacks[0](httpResponse)
+                break;
+            }
+            case 201: {
+                callbacks[1](httpResponse)
                 break;
             }
             case 400: {
-                callbacks[1]()
+                callbacks[2](httpResponse)
                 break;    
             }
             case 403: {
-                callbacks[2]()
+                callbacks[3](httpResponse)
                 break;
             }
             default: {

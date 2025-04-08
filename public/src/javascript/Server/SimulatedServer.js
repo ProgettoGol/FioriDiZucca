@@ -89,6 +89,8 @@ class SimulatedServer {
                 throw new HttpResponse(403, "Forbidden")
             }
 
+        } else if(type === 'POST') {
+            
         }
 
     }
