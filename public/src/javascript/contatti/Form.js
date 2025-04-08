@@ -1,48 +1,31 @@
-var httpRequest = new HttpRequest();
-
-class Prenotazione {
-    constructor(orario, nome, cognome, email, message) {
-        this.orario = orario;
-        this.nome = nome + " " + cognome;
-        this.email = email;
-        this.message = message;
-    }
-}
-
-// IMPLEMENT: Creare un date picker customizzato.
-// In questo modo, alla creazione del date picker, si possono disable le date non valide.
-class DatePicker {
-    constructor() {
-        this.dateInput = document.getElementById("date");
+class Form {
+    constructor(datePicker) {
+        this.datePicker = datePicker;
+        this.dateInput = this.datePicker.dateInput;
+        this.timeInput = document.getElementById("time");
+        this.nameInput = document.getElementById("name");
+        this.lastNameInput = document.getElementById("last_name");
+        this.emailInput = document.getElementById("email");
+        this.messageInput = document.getElementById("message");
     }
 
-    init() {
-        let todayString = new Date().toISOString().split('T')[0];
-        this.dateInput.setAttribute('min', todayString);
-        this.hideForm()
-    }
-
-    #isDateNotValid(date) {
-        // DEBUG: se si inserisce la data scrivendola, per certe date non aspetta che si finisca di inserirla prima di dare l'errore.
-        // Si può risolvere, perché l'errore standard di data non disponibile (attributo min) funziona bene.
-        // Esempio: 05/16/2025
-        // DEBUG: Se una data è selezionata, si clicca la freccia per cambiare mese e lo stesso giorno il mese successivo è domenica, anche se non si seleziona quel giorno, appare il messaggio di errore
-        let dayOfTheWeek = new Date(date).getUTCDay()
-        return (dayOfTheWeek === 0)
-    }
-
-    showCustomValidity(input, message) {
-        input.setCustomValidity(message)
-        input.reportValidity()
-    }
-
-    #resetForm() {
+    resetForm() {
         let resultDiv = document.getElementById("result");
         let times = document.querySelectorAll("option");
 
         resultDiv.style.display = "none";
         for(const time of times) {
             if(time.disabled) time.disabled = false;
+        }
+    }
+
+    hideForm() {
+        let formDivs = document.getElementsByClassName("form-div-js");
+        for(const inputDiv of formDivs) {
+            // DEBUG: at onload, inputDiv.style.display === "". Why?
+            // if(inputDiv.style.display === "flex") {
+                inputDiv.style.display = "none";
+            // }
         }
     }
 
@@ -55,15 +38,6 @@ class DatePicker {
         }
     }
 
-    hideForm() {
-        let formDivs = document.getElementsByClassName("form-div-js");
-        for(const inputDiv of formDivs) {
-            // if(inputDiv.style.display === "flex") {
-                inputDiv.style.display = "none";
-            // }
-        }
-    }
-
     disableTimes(reservations) {
         for(const reservation of reservations) {
             let time = document.querySelector('option[value="' + reservation + '"]');
@@ -71,48 +45,13 @@ class DatePicker {
         }
     }
 
-    Code200Handler(httpResponse) {
-        let reservations = JSON.parse(httpResponse.body);
-        this.disableTimes(reservations)
-        this.showForm()
-    }
-
-    Code400Handler(httpResponse) {
-        // Avviene solo nel caso in cui, dal lato client, sono state fatte modifiche al codice per cui è arrivato al server input non valido
-        // Il server effettua di nuovo la validazione dell'input e ritorna un errore
-        this.showCustomValidity(dateInput, 'Impossibile prenotare per la data selezionata')
-        this.dateInput.value = "";
-    }
-
-    Code403Handler(httpResponse) {
-        // Avviene solo nel caso in cui, dal lato client o con un attacco informatico, si cerca di accedere a risorse del database vietate
-        console.error(httpResponse.code, httpResponse.message)
-    }
-
-    onDateSelection() {
-        this.#resetForm()
-        let date = this.dateInput.value;
-
-        // IMPLEMENT: Questa verifica si farà alla creazione del custom date picker (disabilitando le date non valide)
-        if(this.#isDateNotValid(date)) {
-            this.showCustomValidity(dateInput, 'Impossibile prenotare per la data selezionata')
-            this.dateInput.value = "";
-            return;
-        }
-
-        let httpResponse = httpRequest.databaseRequest("GET", "prenotazioni", date);
-        httpRequest.handleResponse(httpResponse, this.Code200Handler.bind(this), null, this.Code400Handler.bind(this), this.Code403Handler.bind(this))
-    }
-}
-
-class Form {
-    constructor() {
-        this.dateInput = document.getElementById("date");
-        this.timeInput = document.getElementById("time");
-        this.nameInput = document.getElementById("name");
-        this.lastNameInput = document.getElementById("last_name");
-        this.emailInput = document.getElementById("email");
-        this.messageInput = document.getElementById("message");
+    init() {
+        this.resetForm()
+        this.hideForm()
+        this.datePicker.disableTimesCallback = this.disableTimes;
+        this.resetFormCallback = this.resetForm;
+        this.datePicker.showFormCallback = this.showForm;
+        this.datePicker.init()
     }
 
     showCustomValidity(input, message) {
@@ -211,13 +150,4 @@ class Form {
         let httpResponse = httpRequest.databaseRequest("PUT", "prenotazioni", date, prenotazione);
         httpRequest.handleResponse(httpResponse, null, this.Code201Handler.bind(this), this.Code400Handler.bind(this), this.Code403Handler.bind(this))
     }
-}
-
-var datePicker = new DatePicker();
-var formHandler = new Form();
-
-// DEBUG: Non vengono più nascosti o mostrati gli elementi HTML. Perché?
-
-window.onload = function() {
-    datePicker.init()
 }

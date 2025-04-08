@@ -22,7 +22,10 @@
     <script src="public/src/javascript/HTTP/HttpResponse.js" defer></script>
     <script src="public/src/javascript/Server/SimulatedServer.js" defer></script>
     <script src="public/src/javascript/Server/SimulatedDatabase.js" defer></script>
-    <script src="public/src/javascript/contatti.js" defer></script>
+    <script src="public/src/javascript/contatti/Prenotazione.js" defer></script>
+    <script src="public/src/javascript/contatti/DatePicker.js" defer></script>
+    <script src="public/src/javascript/contatti/Form.js" defer></script>
+    <script src="public/src/javascript/contatti/Main.js" defer></script>
 </head>
 
 <body>
@@ -114,7 +117,7 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="datePicker.onDateSelection()" required>
+                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="form.datePicker.onDateSelection()" required>
                             </div>
                         </div>
 
@@ -198,7 +201,7 @@
 
                         <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="formHandler.onFormSubmit()">Submit</button>
+                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="form.onFormSubmit()">Submit</button>
                             </div>
                         </div>
 
