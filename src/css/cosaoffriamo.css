@@ -9,7 +9,7 @@
 
 #cosa_offriamo {
     /* Adding a linear gradient with reduced opacity on top of the background image will reduce the opacity of the image itself */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)), url("../src/immagini/tavolata.png");
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)), url("/public/tavolata.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 30%;

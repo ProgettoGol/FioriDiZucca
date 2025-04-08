@@ -8,7 +8,7 @@
 /* MENU */
 
 #riserva_un_tavolo {
-    background-image: url("../src/immagini/Reservation.gif");
+    background-image: url("/public/Reservation.gif");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 10%;
@@ -23,7 +23,7 @@
 } */
 
 #come_raggiungerci {
-    background-image: url("../src/immagini/backgroundStelle.gif");
+    background-image: url("/public/backgroundStelle.gif");
     background-size: cover;
     background-repeat: no-repeat;
 }

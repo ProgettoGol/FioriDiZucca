@@ -1,5 +1,5 @@
 body {
-    background-image: url("../src/immagini/tavolataLogin.png");
+    background-image: url("/public/tavolataLogin.png");
     background-size: cover;
     background-repeat: no-repeat;
 }

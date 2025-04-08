@@ -15,17 +15,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
 
-    <link rel="stylesheet" href="/public/css/template.css">
-    <link rel="stylesheet" href="/public/css/contatti.css">
+    <link rel="stylesheet" href="/src/css/template.css">
+    <link rel="stylesheet" href="/src/css/contatti.css">
 
-    <script src="public/src/javascript/HTTP/HttpRequest.js" defer></script>
-    <script src="public/src/javascript/HTTP/HttpResponse.js" defer></script>
-    <script src="public/src/javascript/Server/SimulatedServer.js" defer></script>
-    <script src="public/src/javascript/Server/SimulatedDatabase.js" defer></script>
-    <script src="public/src/javascript/contatti/Prenotazione.js" defer></script>
-    <script src="public/src/javascript/contatti/DatePicker.js" defer></script>
-    <script src="public/src/javascript/contatti/Form.js" defer></script>
-    <script src="public/src/javascript/contatti/Main.js" defer></script>
+    <script src="/src/javascript/HTTP/HttpRequest.js"></script>
+    <script src="/src/javascript/HTTP/HttpResponse.js"></script>
+    <script src="/src/javascript/Server/SimulatedServer.js"></script>
+    <script src="/src/javascript/Server/SimulatedDatabase.js"></script>
+    <script src="/src/javascript/contatti/Prenotazione.js"></script>
+    <script src="/src/javascript/contatti/DatePicker.js"></script>
+    <script src="/src/javascript/contatti/Form.js"></script>
+    <script src="/src/javascript/contatti/Main.js"></script>
 
 </head>
 
@@ -37,7 +37,7 @@
                 <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
                     <nav>
                         <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
-                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                            <img class="object-xs" src="/public/Icongridview.png">
                         </button>
 
                         <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
@@ -45,7 +45,7 @@
                                 <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
                                     <span>
                                         <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
-                                            <img class="object-xs" src="public/src/immagini/Icongridview.png">
+                                            <img class="object-xs" src="/public/Icongridview.png">
                                         </button>
                                     </span>
                                 </div>
@@ -55,31 +55,31 @@
                                 <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="public/src/immagini/personalAreaIcon.png">
+                                            <img class="icon" src="/public/personalAreaIcon.png">
                                         </div>
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="login.html">Area personale</a>
+                                            <a class="list-group-item text-xs" href="/src/html/login.html">Area personale</a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="public/src/immagini/restaurantMenuIcon.png">
+                                            <img class="icon" src="/public/restaurantMenuIcon.png">
                                         </div>
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="cosaoffriamo.html">Cosa offriamo</a>
+                                            <a class="list-group-item text-xs" href="/src/html/cosaoffriamo.html">Cosa offriamo</a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="public/src/immagini/reservationIcon.png">
+                                            <img class="icon" src="/public/reservationIcon.png">
                                         </div>
                                     </div>
                                     <div class="m-0 row">
@@ -101,14 +101,14 @@
                 <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
                 <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
                     <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
-                        <a class="list-group-item roboto-condensed-regular text-s text-dark" href="login.html">LOGIN</a>
+                        <a class="list-group-item roboto-condensed-regular text-s text-dark" href="/src/html/login.html">LOGIN</a>
                     </button>
                 </div>
             </div>
         </header>
 
         <section>
-            <form>
+            <form onsubmit="window.form.onFormSubmit()">
                 <div class="m-0 row padding-responsive-y-5">
                     <div class="p-0 col-2 col-lg-3"></div>
                     <div class="p-0 col-8 col-lg-6 d-flex flex-column">
@@ -118,7 +118,7 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="form.datePicker.onDateSelection()" required>
+                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="window.form.datePicker.onDateSelection()" required>
                             </div>
                         </div>
 
@@ -202,7 +202,7 @@
 
                         <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="button" onclick="form.onFormSubmit()">Submit</button>
+                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="submit">Submit</button>
                             </div>
                         </div>
 
@@ -275,16 +275,16 @@
                     <section class="text-center text-xs">
                         <ul>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="index.html">Homepage</a>
+                                <a class="list-group-item" href="/index.html">Homepage</a>
                             </li>
                             <li class="list-group-item text-center">
                                 <a class="list-group-item" href="#come_raggiungerci">Contatti</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="privacy.html">Privacy Policy</a>
+                                <a class="list-group-item" href="src/html/privacy.html">Privacy Policy</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="cookie_policy.html">Cookie Policy</a>
+                                <a class="list-group-item" href="/src/html/cookie_policy.html">Cookie Policy</a>
                             </li>
                         </ul>
                     </section>
