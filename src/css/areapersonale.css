@@ -1,21 +1,37 @@
-.card {
-    min-height: 40vh;
-}
+/* MENU */
+/* DEBUG: da eliminare quando il menu sarà aggiunto dinamicamente (oppure potrebbe essere aggiunto al template) */
 
 .icon {
     width: 2vw;
 }
 
-.card-col {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
+/* MENU */
 
 #areapersonale {
     background-image: url("/public/backgroundPini.gif");
-    min-height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#areapersonale .small-image {
+    width: 10vw;
+}
+
+#areapersonale .medium-image {
+    width: 15vw;
+}
+
+#areapersonale .big-image {
+    width: 20vw;
+}
+
+/* DEBUG: Il contenitore che oscura la card è più largo rispetto alla card */
+
+#areapersonale .container-positioned {
+    position: relative;
+}
+
+#areapersonale .bloccato {
+    position: absolute;
 }

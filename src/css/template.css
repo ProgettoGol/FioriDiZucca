@@ -15,10 +15,13 @@ POSSIBLE SOLUTIONS:
     --dark-green: #007100;
     --yellow: #FFCC00;
     --yellow-subtle: #FFCC0080;
+    --orange: #F38A12CC;
+    --orange-subtle: #FF6E0080;
     --grey: #4F4F4F;
     --brown: #2B1C00;
     --dark: #030303;
     --light: #FFFFFF;
+    --shadow: #00000080;
     --transparent: #FFFFFF00;
 
     /* DEFAULT VALUES */
@@ -260,9 +263,14 @@ ul {
 
 /* OBJECT SIZE */
 
-.object-xxl {
+.object-xxxl {
     width: 100% !important;
     height: calc(60 * var(--responsive-unit)) !important;
+}
+
+.object-xxl {
+    width: 100% !important;
+    height: calc(30 * var(--responsive-unit)) !important;
 }
 
 .object-xl {
@@ -290,6 +298,13 @@ ul {
     height: calc(5 * var(--responsive-unit)) !important;
 }
 
+/* HOVER */
+
+.hoverable-orange:hover {
+    background-image: radial-gradient(circle, var(--orange-subtle), var(--orange-subtle), var(--transparent), var(--transparent));
+    cursor: pointer;
+}
+
 /* TEXT SIZE */
 
 /* 300px */
@@ -315,6 +330,10 @@ ul {
 /* 24px */
 .text-s {
     font-size: calc(2 * var(--responsive-unit-visible)) !important;
+}
+
+.text-s-adapted {
+    font-size: calc(1.5 * var(--responsive-unit-visible));
 }
 
 /* 12px */
@@ -368,12 +387,20 @@ ul {
     background-color: var(--yellow-subtle) !important;
 }
 
+.background-orange {
+    background-color: var(--orange) !important;
+}
+
 .background-dark {
     background-color: var(--dark) !important;
 }
 
 .background-light {
     background-color: var(--light) !important;
+}
+
+.background-shadow {
+    background-color: var(--shadow) !important;
 }
 
 .background-transparent {
@@ -397,6 +424,12 @@ ul {
 .roboto-condensed-regular {
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-condensed-bold {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
     font-style: normal;
 }
 

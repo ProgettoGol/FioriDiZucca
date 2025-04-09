@@ -1,28 +1,9 @@
-body {
+#login {
     background-image: url("/public/tavolataLogin.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-section {
-    display: flex;
+#login section {
     min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 }
-
-.card-title{
-    font-size: 3vh;
-    font-weight: bolder;
-}
-
-.card {
-    background-color: rgb(243 138 18 / 69%);
-    min-height: 40vh;
-}
-
-.form-control {
-    margin: 5vh 0;
-}
-
