@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <script src="/datepicker/datepicker.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            p {
+                position: absolute;
+                /* top: 100%; */
+                border: 1px solid grey;
+            }
+            div {
+                position: relative;
+                border: 1px solid red;
+            }
+            input[type=radio] {
+                appearance: none;
+                border: 10px solid white;
+            }
+            input[type=radio]:hover {
+                border-color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <date-picker></date-picker>
+
+        <form onsubmit="onSubmitForm()">
+        <div>
+            <p>3</p>
+            <input id="prova1" type="radio" name="prova" value="1">
+        </div>
+        <input id="prova2" type="radio" name="prova" value="2">
+        <input id="prova3" type="radio" name="prova" value="3">
+        <input type="radio" name="prova">
+        <input type="radio" name="prova">
+        <button type="submit">sub</button>
+        </form>
+    </body>
+</html>
