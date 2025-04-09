@@ -1,78 +1,84 @@
-class MemoryHandler {
-    saveCredenziali(CredenzialiJSON) {
-        // bisogna fare il check su null. Se non esiste, crearlo
-        let listaCredenzialiString = window.localStorage.getItem('listaCredenziali');
-        let listaCredenzialiJSON = JSON.parse(listaCredenzialiString);
-        listaCredenzialiJSON.push(CredenzialiJSON)
-        window.localStorage.setItem("listaCredenziali", JSON.stringify(listaCredenzialiJSON))
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("Event loaded");
 
-    getCredenziali() {
-        // Il confronto andrebbe fatto sul server, quindi non bisognerebbe ritornare l'intera lista ma solo le credenziali JSON singole
-        // bisogna fare il check su null
-        return JSON.parse(window.localStorage.getItem("listaCredenziali"))
-    }
-}
 
-class Website {
-    constructor() {
-        this.memoryHandler = new MemoryHandler();
-    }
+    const memoryHandler = {
+        saveCredenziali: function (credenzialiJSON) {
+            localStorage.setItem("listaCredenziali", JSON.stringify(credenzialiJSON));
+        },
 
-    sessionRequest() {
-        // recupera i cookie
-        // verifica che ci sia una sessione attiva
-        // Se c'è una sessione attiva sostituisce il bottone login con un bottone logout
-        // Se c'è una sessione attiva crea dinamicamente la pagina areapersonale
-        // Se non c'è una sessione attiva, lascia invariato
-    }
-
-    HTTPRequest() {
-        let username = document.getElementById("username");
-        let password = document.getElementById("password");
-        let passwordHashed = password.value; //sha256(password.value)
-        let datiUtente = {
-            "username": username,
-            "password": passwordHashed
+        getCredenziali: function () {
+            let data = localStorage.getItem("listaCredenziali");
+            return data ? JSON.parse(data) : [];
         }
+    };
 
-        // bisogna fare il check su null
-        let listaCredenziali = this.memoryHandler.getCredenziali();
-        for(const credenzialiJSON of listaCredenziali.listaCredenziali) {
-            if((datiUtente.username === credenzialiJSON.username) && (datiUtente.password === credenzialiJSON.password)) {
-                // Ritorna response status 200 OK
-            } else {
-                // Ritorna response status 400 Bad Request
+    function HTTPRequest() {
+        let username = document.getElementById("username")?.value;
+        let password = document.getElementById("password")?.value;
+
+        if (username != null && username.trim() != "" || password != null && password.trim() != "") {
+            const listaCredenziali = memoryHandler.getCredenziali();
+            for (const user of listaCredenziali) {
+                if (user.username === username && user.password === password) {
+                    console.log("200 OK");
+                    return '200';
+                }
             }
+        }else  {          
+            console.log("400 Bad Request");
+            return '400';
         }
+        console.log("404 User not found");
+        return '404';
     }
 
-    accediRegistrati() {
-        let statusCode = this.HTTPRequest();
-        if(statusCode === '400') { //Come si fa?
-            // reindirizza a registrazione
-            // recupera i dati input per la registrazione dal form registrazione
-            // fa il salvataggio in localStorage (this.memoryHandler.saveCredenziali(credenzialiJSON))
+    function accediRegistrati() {
+        console.log("Pre-login");
+        const response = HTTPRequest();
+
+        if (response === '400') {
+            alert("Inserisci username e password.");
+        } else if (response === '404') {
+            alert("Utente non salvato")
         } else {
-            // effettua login
-            // salva la sessione corrente nel cookie (come si fa?)
-
-            // cos'è la sessione? 
-            // L'username dell'utente (da scrivere in ogni pagina html in alto a destra di fianco al tasto Logout)
-            // numero di punti della pagina personale
-
-            // crea dinamicamente l'area personale (in base al numero di punti sblocca le card necessarie)
+            // Login e gestione sessione
+            document.cookie = `session=${document.getElementById("username").value}; path=/;`;
+            console.log("Login effettuato. Sessione salvata nei cookie.");
         }
     }
 
-    logout() {
-        // cancella i cookie
-        // blocca l'accesso all'area personale
+    function logout() {
+        document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        console.log("Logout effettuato. Cookie cancellato.");
     }
-}
 
-var website = new Website();
+    const newUser = [{
+        nome: "Mario",
+        cognome: "Rossi",
+        username: "mariorossi",
+        password: "12345"
+      },{
+        nome: "Luca",
+        cognome: "Tommasi",
+        username: "l.tommasi",
+        password: "12345"
+      }
+    ]
+      memoryHandler.saveCredenziali(newUser);
 
-window.onload = function() {
-    let doesCookieExist = website.sessionRequest()
-};
+    // Esempio: puoi associare queste funzioni a bottoni nel tuo HTML
+    document.getElementById("loginBtn")?.addEventListener("click", accediRegistrati);
+    document.getElementById("logoutBtn")?.addEventListener("click", logout);
+});
+
+
+    // parte di codice funzionante che va inserito nella registrazione        
+// let nome = document.getElementById("nome")?.value || "Nome";
+// let cognome = document.getElementById("cognome")?.value || "Cognome";
+// let username = document.getElementById("username")?.value;
+// let password = document.getElementById("password")?.value;
+
+// const newUser = { nome, cognome, username, password };
+// memoryHandler.saveCredenziali(newUser);
+// alert("Utente registrato!");
