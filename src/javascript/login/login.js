@@ -23,8 +23,13 @@ class LogInForm {
 
     code201Handler(httpResponse) {
         console.log("Login avvenuto con successo")
+        let tokenJSON = JSON.parse(httpResponse.body)
+        let token = tokenJSON.token;
+        let expirationDate = new Date(tokenJSON.expiration)
+        document.cookie = `sessionToken=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
+        location.replace("/src/html/areapersonale.html")
         // HANDLING DELLA SESSIONE:
-        // Salvataggio dei cookie
+        // recupero della Sessione
         // Trasformazione del pulsante login
         // Cambio degli href per l'area personale
         // Creazione dell'area personale, con i punti
@@ -159,8 +164,50 @@ class SignUpForm {
     }
 }
 
-class Session {
+class SessionHandler {
+    getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+    }
 
+    code200Handler() {
+        // SESSION HANDLING
+        // Trasformazione del pulsante login
+        // Cambio degli href per l'area personale
+        // Creazione dell'area personale, con i punti
+    }
+
+    code404Handler() {
+        // Avviene solo nel caso di attacchi informatici o modifica del javascript
+    }
+
+    retrieveSession() {
+        let token = this.getCookie("sessionToken");
+        if(token !== "") {
+            let httpResponse = httpRequest.databaseRequest("GET", "sessions", token)
+            console.log(httpResponse)
+        }
+    }
+
+    destroySession() {
+        let token = this.getCookie("sessionToken");
+        if(token !== "") {
+            document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            let httpResponse = httpRequest.databaseRequest("DELETE", "sessions", token)
+            console.log(httpResponse)
+        }
+    }
 }
 
 /*

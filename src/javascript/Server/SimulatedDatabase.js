@@ -4,6 +4,7 @@ class SimulatedDatabase {
     }
 
     getResource(item, key) {
+
         let resource = localStorage.getItem(item);
 
         if(resource === null) {
@@ -14,6 +15,19 @@ class SimulatedDatabase {
         }
 
         resource = JSON.parse(resource);
+
+        if(item === "sessions") {
+            let newResource = {}
+            for(const key of Object.keys(resource)) {
+                let currentDate = new Date();
+                let expirationDate = new Date(resource[key].expiration);
+                if(!(currentDate >= expirationDate)) {
+                    newResource[key] = resource[key];
+                }
+            }
+            localStorage.setItem(item, JSON.stringify(newResource))
+            resource = newResource;
+        }
 
         if(resource[key] === undefined) return [];
         else return resource[key];

@@ -49,6 +49,41 @@ class SimulatedServer {
 
     }
 
+    #generateRandomString(length) {
+        const characters =
+          'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let result = '';
+      
+        // Create an array of 32-bit unsigned integers
+        const randomValues = new Uint32Array(length);
+        
+        // Generate random values
+        window.crypto.getRandomValues(randomValues)
+        randomValues.forEach((value) => {
+          result += characters.charAt(value % charactersLength);
+        });
+        return result;
+    }
+
+    createSession(username, punti) {
+        let token = this.#generateRandomString(25);
+        let currentDate = new Date();
+        let expirationDate = new Date(currentDate);
+        expirationDate.setDate(expirationDate.getDate() + 7)
+        let session = new Session(username, punti, expirationDate)
+        this.database.updateResource("JSON", 'sessions', token, JSON.stringify(session))
+        let tokenJSON = {
+            'token': token,
+            'expiration': expirationDate
+        }
+        return tokenJSON;
+    }
+
+    deleteSession(token) {
+
+    }
+
     handleDatabaseRequest(type, item, key, body) {
         if(type === 'GET') { //Simula una richiesta "GET item/key"
 
@@ -75,6 +110,23 @@ class SimulatedServer {
                     }
                     return new HttpResponse(200, "OK", JSON.stringify(reservationTimes));
                 }
+            } else if(item === "sessions") {
+                let session;
+                try {
+                    session = this.database.getResource(item, key)
+                } catch(response) {
+                    // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
+                    throw response
+                } finally {
+                    if(Array.isArray(session)) {
+                        throw new HttpResponse(404, "Not Found")
+                    }
+                    let sessionInfo = {}
+                    sessionInfo['username'] = session.username;
+                    sessionInfo['punti'] = session.punti;
+                    return new HttpResponse(200, "OK", JSON.stringify(sessionInfo));
+                }
+
             } else {
                 // Il client ha cercato di accedere a risorse a cui non ha accesso
                 throw new HttpResponse(403, "Forbidden")
@@ -124,8 +176,8 @@ class SimulatedServer {
 
                         let newCredentials = JSON.parse(body)
                         if(credentials.password === newCredentials.password) {
-                            // CREA SESSIONE
-                            throw new HttpResponse(201, "Created")
+                            let tokenJSON = this.createSession(key, credentials.points)
+                            return new HttpResponse(201, "Created", JSON.stringify(tokenJSON))
                         } else {
                             throw new HttpResponse(401, "Unauthorized")
                         }
@@ -146,20 +198,31 @@ class SimulatedServer {
                             throw new HttpResponse(409, "Conflict")
                         }
 
+                        let newCredentials = JSON.parse(body)
+                        let newCredentialsCopy = {}
+                        for(const key of Object.keys(newCredentials)) {
+                            if(key !== "type") {
+                                newCredentialsCopy[key] = newCredentials[key];
+                            }
+                        }
+                        newCredentialsCopy['points'] = 0;
+
                         try {
-                            this.database.updateResource("JSON", item, key, body)
+                            this.database.updateResource("JSON", item, key, JSON.stringify(newCredentialsCopy))
                         } catch(response) {
                             // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
                             throw response
                         } finally {
-                            // CREA SESSIONE
-                            throw new HttpResponse(201, "Created")
+                            let tokenJSON = this.createSession(key, credentials.punti)
+                            return new HttpResponse(201, "Created", JSON.stringify(tokenJSON))
                         }
                     }
                 }
             } else {
                 throw new HttpResponse(403, "Forbidden")
             }
+        } else if(type === 'DELETE') {
+
         }
 
     }
