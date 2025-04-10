@@ -12,6 +12,12 @@ class HttpRequest {
         }
     }
 
+    // DEBUG: inserire 5 array per ogni set di risposte HTTP:
+    // Informational responses (100 - 103)
+    // Successful responses (200 - 226)
+    // Redirection messages (300 - 308)
+    // Client error responses (400 - 451)
+    // Server error responses (500 - 511)
     handleResponse(httpResponse, ...callbacks) {
         switch(httpResponse.code) {
             case 200: {
@@ -26,8 +32,20 @@ class HttpRequest {
                 callbacks[2](httpResponse)
                 break;    
             }
+            case 401: {
+                callbacks[4](httpResponse)
+                break;
+            }
             case 403: {
                 callbacks[3](httpResponse)
+                break;
+            }
+            case 404: {
+                callbacks[5](httpResponse)
+                break;
+            }
+            case 409: {
+                callbacks[6](httpResponse)
                 break;
             }
             default: {

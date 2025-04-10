@@ -15,7 +15,14 @@
 
     <link rel="stylesheet" href="/src/css/template.css">
     <link rel="stylesheet" href="/src/css/login.css">
-    <script src="../javascript/login.js"></script>
+
+
+    <script src="/src/javascript/HTTP/HttpRequest.js"></script>
+    <script src="/src/javascript/HTTP/HttpResponse.js"></script>
+    <script src="/src/javascript/Server/SimulatedServer.js"></script>
+    <script src="/src/javascript/Server/SimulatedDatabase.js"></script>
+    <script src="/src/javascript/login/login.js"></script>
+    <script src="/src/javascript/Main.js"></script>
 </head>
 
 <body>
@@ -100,11 +107,11 @@
                                 <div class="p-0 col-2"></div>
 
                                 <div class="p-0 col-8 rounded-responsive-1 background-orange padding-responsive-x-2">
-                                    <form>
+                                    <form onsubmit="logInForm.onFormSubmit(); return false;">
                                         <div class="text-center">
                                             <h1 class="m-0 roboto-condensed-bold text-m text-dark margin-responsive-y-3">LOGIN</h1>
-                                            <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username">
-                                            <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password">
+                                            <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username" required>
+                                            <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password" required>
                                             <button id="loginBtn" type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
                                         </div>
                                     </form>

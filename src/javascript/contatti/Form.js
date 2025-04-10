@@ -1,6 +1,7 @@
 // DEBUG: validazione timeInput -> orari superiori agli orari di chiusura (compreso il sabato) non validi
 // DEBUG: validazione timeInput -> orari non ogni 15 minuti non validi
 // DEBUG: validazione dateInput -> non possono essere selezionate date non realmente esistenti (esempio: 29-02-2019)
+// DEBUG: validazione input -> il campo non deve essere uno spazio vuoto
 
 class Form {
     hideForm() {
@@ -133,7 +134,5 @@ class Form {
 
         let httpResponse = httpRequest.databaseRequest("PUT", "prenotazioni", date, prenotazione);
         httpRequest.handleResponse(httpResponse, null, this.code201Handler.bind(this), this.code400Handler.bind(this), this.code403Handler.bind(this))
-
-        return false;
     }
 }

@@ -10,7 +10,7 @@ class SimulatedServer {
         return ((reservationDate < today) || (reservationDate.getUTCDay() === 0));
     }
 
-    #areFormInputsNotValid(newReservation, date, item) {
+    #areReservationFormInputsNotValid(newReservation, date, item) {
         // verifica che nessuno degli input sia vuoto
         let areInputsEmpty = ((date === "") || (newReservation.orario === "") || (newReservation.nome.startsWith(" ")) || (newReservation.nome.endsWith(" ")) || (newReservation.email === ""))
         let doesReservationAlreadyExist = false;
@@ -34,6 +34,19 @@ class SimulatedServer {
         }
 
         return (areInputsEmpty || doesReservationAlreadyExist);
+    }
+
+    #areLoginFormInputsNotValid(newCredentials, key) {
+        let isUsernameNotValid = ((key === null) || (key.trim() === ""));
+        let isPasswordNotValid = (newCredentials.password === null || newCredentials.password.trim() === "");
+        return isUsernameNotValid || isPasswordNotValid;
+    }
+
+    #areSignupFormInputsNotValid(newCredentials, key) {
+        let isNameNotValid = ((newCredentials.name === null) || (newCredentials.name.trim() === ""));
+        let islastNameNotValid = ((newCredentials.lastName === null) || (newCredentials.lastName.trim() === ""));
+        return this.#areLoginFormInputsNotValid(newCredentials, key) || isNameNotValid || islastNameNotValid;
+
     }
 
     handleDatabaseRequest(type, item, key, body) {
@@ -71,13 +84,13 @@ class SimulatedServer {
 
             if(item === 'prenotazioni') {
                 // input validation
-                if(this.#areFormInputsNotValid(JSON.parse(body), key, item)) {
+                if(this.#areReservationFormInputsNotValid(JSON.parse(body), key, item)) {
                     throw new HttpResponse(400, "Bad Request")
                 }
 
                 // PUT request handling
                 try {
-                    this.database.updateResource(item, key, body)
+                    this.database.updateResource("JSONList", item, key, body)
                 } catch(response) {
                     // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
                     throw response
@@ -91,6 +104,62 @@ class SimulatedServer {
 
         } else if(type === 'POST') {
             
+            if(item === 'credenziali') {
+
+                if(JSON.parse(body).type === "login") {
+                    if(this.#areLoginFormInputsNotValid(JSON.parse(body), key)) {
+                        throw new HttpResponse(400, "Bad Request")
+                    }
+
+                    let credentials;
+                    try {
+                        credentials = this.database.getResource(item, key)
+                    } catch(response) {
+                        // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
+                        throw response
+                    } finally {
+                        if(Array.isArray(credentials)) {
+                            throw new HttpResponse(404, "Not Found")
+                        }
+
+                        let newCredentials = JSON.parse(body)
+                        if(credentials.password === newCredentials.password) {
+                            // CREA SESSIONE
+                            throw new HttpResponse(201, "Created")
+                        } else {
+                            throw new HttpResponse(401, "Unauthorized")
+                        }
+                    }
+                } else if(JSON.parse(body).type === "signup") {
+                    if(this.#areSignupFormInputsNotValid(JSON.parse(body), key)) {
+                        throw new HttpResponse(400, "Bad Request")
+                    }
+
+                    let credentials;
+                    try {
+                        credentials = this.database.getResource(item, key)
+                    } catch(response) {
+                        // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
+                        throw response
+                    } finally {
+                        if(!Array.isArray(credentials)) {
+                            throw new HttpResponse(409, "Conflict")
+                        }
+
+                        try {
+                            this.database.updateResource("JSON", item, key, body)
+                        } catch(response) {
+                            // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
+                            throw response
+                        } finally {
+                            // CREA SESSIONE
+                            throw new HttpResponse(201, "Created")
+                        }
+                    }
+                }
+            } else {
+                throw new HttpResponse(403, "Forbidden")
+            }
         }
 
     }

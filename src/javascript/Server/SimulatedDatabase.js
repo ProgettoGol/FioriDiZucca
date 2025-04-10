@@ -19,7 +19,7 @@ class SimulatedDatabase {
         else return resource[key];
     }
 
-    updateResource(item, key, body) {
+    updateResource(type, item, key, body) {
         let resource = localStorage.getItem(item);
 
         if(resource === null) {
@@ -30,13 +30,18 @@ class SimulatedDatabase {
         }
 
         resource = JSON.parse(resource);
-        if(resource[key] !== undefined) {
-            resource[key].push(JSON.parse(body))
-        } else {
-            resource[key] = [];
-            resource[key].push(JSON.parse(body))
+
+        if(type === "JSONList") {
+            if(resource[key] !== undefined) {
+                resource[key].push(JSON.parse(body))
+            } else {
+                resource[key] = [];
+                resource[key].push(JSON.parse(body))
+            }
+        } else if(type === "JSON") {
+            resource[key] = JSON.parse(body)
         }
 
-        localStorage.setItem('prenotazioni', JSON.stringify(resource))
+        localStorage.setItem(item, JSON.stringify(resource))
     }
 }
