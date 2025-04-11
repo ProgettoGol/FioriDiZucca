@@ -1,0 +1,79 @@
+<!-- DEBUG: trovare un minimo comune multiplo tra i vari menu e risolvere il problema del posizionamento dei div container -->
+<!-- DEBUG: le liste con icone funzionano tutte allo stesso modo. E' possibile renderle un'unica classe nel template? -->
+
+<header>
+    <div id="fiori_di_zucca" class="p-0 container-fluid">
+        <div class="m-0 row padding-responsive-y-3">
+            <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                <nav>
+                    <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                        <img class="object-xs" src="/public/Icongridview.png">
+                    </button>
+
+                    <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                        <div class="m-0 row padding-responsive-y-3">
+                            <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                <span>
+                                    <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                        <img class="object-xs" src="/public/Icongridview.png">
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <ul class="p-0 container-fluid">
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="/public/personalAreaIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="/src/html/login.html">Area personale</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="/public/restaurantMenuIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="/src/html/cosaoffriamo.html">Cosa offriamo</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                        <img class="icon" src="/public/reservationIcon.png">
+                                    </div>
+                                </div>
+                                <div class="m-0 row">
+                                    <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                        <a class="list-group-item text-xs" href="/src/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="p-0 col-8">
+                <h1 class="object-xxxl oswald-bold text-xxl text-light text-shadow-responsive-1 text-shadow-yellow d-flex align-items-center justify-content-center text-center">Fiori di Zucca</h1>
+            </div>
+
+            <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
+            <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
+                <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
+                    <a class="list-group-item roboto-condensed-regular text-s text-dark" href="/src/html/login.html">LOGIN</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

@@ -46,7 +46,6 @@ class SimulatedServer {
         let isNameNotValid = ((newCredentials.name === null) || (newCredentials.name.trim() === ""));
         let islastNameNotValid = ((newCredentials.lastName === null) || (newCredentials.lastName.trim() === ""));
         return this.#areLoginFormInputsNotValid(newCredentials, key) || isNameNotValid || islastNameNotValid;
-
     }
 
     #generateRandomString(length) {
@@ -223,6 +222,18 @@ class SimulatedServer {
             }
         } else if(type === 'DELETE') {
 
+            if(item === "sessions") {
+                try {
+                    this.database.deleteResource(item, key)
+                } catch(response) {
+                    throw response
+                } finally {
+                    return new HttpResponse(204, "No Content")
+                }
+            }
+            else {
+                throw new HttpResponse(403, "Forbidden")
+            }
         }
 
     }

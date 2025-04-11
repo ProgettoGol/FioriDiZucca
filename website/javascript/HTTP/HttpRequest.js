@@ -1,6 +1,5 @@
 class HttpRequest {
     constructor() {
-        this.xmlHttpRequest = new XMLHttpRequest();
         this.server = new SimulatedServer();
     }
 
@@ -21,11 +20,14 @@ class HttpRequest {
     handleResponse(httpResponse, ...callbacks) {
         switch(httpResponse.code) {
             case 200: {
-                callbacks[0](httpResponse)
-                break;
+                return callbacks[0](httpResponse)
             }
             case 201: {
                 callbacks[1](httpResponse)
+                break;
+            }
+            case 204: {
+                callbacks[7](httpResponse)
                 break;
             }
             case 400: {

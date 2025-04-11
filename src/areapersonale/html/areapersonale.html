@@ -14,8 +14,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/src/css/template.css">
-    <link rel="stylesheet" href="/src/css/areapersonale.css">
+    <link rel="stylesheet" href="/website/css/template.css">
+    <link rel="stylesheet" href="/src/areapersonale/css/areapersonale.css">
+
+    <script src="/website/javascript/HTTP/HttpRequest.js"></script>
+    <script src="/website/javascript/HTTP/HttpResponse.js"></script>
+    <script src="/website/javascript/Server/Session.js"></script>
+    <script src="/website/javascript/Server/SimulatedServer.js"></script>
+    <script src="/website/javascript/Server/SimulatedDatabase.js"></script>
+    <script src="/website/javascript/Sessione/SessionHandler.js"></script>
+    <script src="/src/areapersonale/javascript/areapersonale.js"></script>
+    <script src="/website/MainWebsite.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +61,7 @@
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/html/areapersonale.html">Area personale</a>
+                                            <a class="list-group-item text-xs" href="/src/areapersonale/html/areapersonale.html">Area personale</a>
                                         </div>
                                     </div>
                                 </li>
@@ -63,7 +73,7 @@
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/html/cosaoffriamo.html">Cosa offriamo</a>
+                                            <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
                                         </div>
                                     </div>
                                 </li>
@@ -75,7 +85,7 @@
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                            <a class="list-group-item text-xs" href="/src/contatti/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
                                         </div>
                                     </div>
                                 </li>
@@ -99,8 +109,8 @@
                             <div class="p-0 col-12 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 d-flex flex-column justify-content-center align-items-center">
-                                        <p class="indie-flower-bold text-xl text-dark">Nome Cognome</p>
-                                        <p class="indie-flower-bold text-xl text-dark">25000 punti</p>
+                                        <p id="user_info" class="indie-flower-bold text-xl text-dark"></p>
+                                        <p id="points" class="indie-flower-bold text-xl text-dark">25000 punti</p>
                                     </div>
                                     <div class="p-0 col-6 d-flex justify-content-center align-items-center">
                                         <img class="big-image" src="/public/qrcodeProva.png" title="codice QR" alt="non codice QR" />
@@ -108,7 +118,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_100" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -122,7 +132,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_200" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -136,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_500" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -150,7 +160,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_1000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -164,7 +174,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_2000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -178,7 +188,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_5000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -192,7 +202,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_10000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -206,7 +216,7 @@
                                 </div>
                             </div>
 
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_20000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -218,9 +228,9 @@
                                         <img class="bloccato small-image" src="/public/blocco.png" title="blocco" alt="non blocco"/>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                             
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_50000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -235,7 +245,7 @@
                             </div>
                             
                             <div class="p-0 col-4 d-none d-lg-block"></div>
-                            <div class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
+                            <div id="card_100000" class="container-positioned p-0 col-12 col-lg-4 margin-responsive-y-3 d-flex align-items-center justify-content-center">
                                 <div class="bloccato object-xxl rounded-responsive-2 background-shadow"></div>
                                 <div class="object-xxl m-0 row rounded-responsive-2 background-yellow-subtle margin-responsive-x-3 padding-responsive-2">
                                     <div class="p-0 col-6 col-lg-12 d-flex flex-column justify-content-center">
@@ -280,16 +290,16 @@
                     <section class="text-center text-xs">
                         <ul>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="#">Homepage</a>
+                                <a class="list-group-item" href="/index.html">Homepage</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="/src/html/contatti.html#come_raggiungerci">Contatti</a>
+                                <a class="list-group-item" href="/src/contatti/html/contatti.html#come_raggiungerci">Contatti</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="/src/html/privacy.html">Privacy Policy</a>
+                                <a class="list-group-item" href="/src/privacy/html/privacy.html">Privacy Policy</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="/src/html/cookie_policy.html">Cookie Policy</a>
+                                <a class="list-group-item" href="/src/cookie_policy/html/cookie_policy.html">Cookie Policy</a>
                             </li>
                         </ul>
                     </section>

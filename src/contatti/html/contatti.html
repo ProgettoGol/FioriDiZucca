@@ -13,20 +13,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
 
-    <link rel="stylesheet" href="/src/css/template.css">
-    <link rel="stylesheet" href="/src/css/contatti.css">
+    <link rel="stylesheet" href="/website/css/template.css">
+    <link rel="stylesheet" href="/src/contatti/css/contatti.css">
 
-    <script src="/src/javascript/HTTP/HttpRequest.js"></script>
-    <script src="/src/javascript/HTTP/HttpResponse.js"></script>
-    <script src="/src/javascript/Server/SimulatedServer.js"></script>
-    <script src="/src/javascript/Server/SimulatedDatabase.js"></script>
-    <script src="/src/javascript/contatti/Prenotazione.js"></script>
-    <script src="/src/javascript/contatti/DatePicker.js"></script>
-    <script src="/src/javascript/contatti/Form.js"></script>
-    <script src="/src/javascript/Main.js"></script>
-
+    <script src="/website/javascript/HTTP/HttpRequest.js"></script>
+    <script src="/website/javascript/HTTP/HttpResponse.js"></script>
+    <script src="/website/javascript/Server/SimulatedServer.js"></script>
+    <script src="/website/javascript/Server/SimulatedDatabase.js"></script>
+    <script src="/website/javascript/Sessione/SessionHandler.js"></script>
+    <script src="/src/contatti/javascript/Prenotazione.js"></script>
+    <script src="/src/contatti/javascript/DatePicker.js"></script>
+    <script src="/src/contatti/javascript/Form.js"></script>
+    <script src="/website/MainWebsite.js"></script>
 </head>
 
 <body>
@@ -60,7 +59,7 @@
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/html/login.html">Area personale</a>
+                                            <a class="list-group-item text-xs" href="/src/login/html/login.html">Area personale</a>
                                         </div>
                                     </div>
                                 </li>
@@ -72,7 +71,7 @@
                                     </div>
                                     <div class="m-0 row">
                                         <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/html/cosaoffriamo.html">Cosa offriamo</a>
+                                            <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
                                         </div>
                                     </div>
                                 </li>
@@ -101,7 +100,7 @@
                 <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
                 <div class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3">
                     <button type="button" class="object-xs background-yellow rounded-responsive-3 border-responsive-2 d-flex justify-content-center align-items-center">
-                        <a class="list-group-item roboto-condensed-regular text-s text-dark" href="/src/html/login.html">LOGIN</a>
+                        <a class="list-group-item roboto-condensed-regular text-s text-dark" href="/src/login/html/login.html">LOGIN</a>
                     </button>
                 </div>
             </div>
@@ -281,10 +280,10 @@
                                 <a class="list-group-item" href="#come_raggiungerci">Contatti</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="src/html/privacy.html">Privacy Policy</a>
+                                <a class="list-group-item" href="src/privacy/html/privacy.html">Privacy Policy</a>
                             </li>
                             <li class="list-group-item text-center">
-                                <a class="list-group-item" href="/src/html/cookie_policy.html">Cookie Policy</a>
+                                <a class="list-group-item" href="/src/cookiepolicy/html/cookie_policy.html">Cookie Policy</a>
                             </li>
                         </ul>
                     </section>
