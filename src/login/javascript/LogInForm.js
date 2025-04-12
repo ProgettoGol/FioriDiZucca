@@ -13,17 +13,13 @@ class LogInForm {
     }
 
     code201Handler(httpResponse) {
-        console.log("Login avvenuto con successo")
         let tokenJSON = JSON.parse(httpResponse.body)
         let token = tokenJSON.token;
         let expirationDate = new Date(tokenJSON.expiration)
         document.cookie = `sessionToken=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
         location.replace("/src/areapersonale/html/areapersonale.html")
         // HANDLING DELLA SESSIONE:
-        // recupero della Sessione
-        // Trasformazione del pulsante login
         // Cambio degli href per l'area personale
-        // Creazione dell'area personale, con i punti
     }
 
     code400Handler(httpResponse) {

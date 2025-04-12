@@ -212,7 +212,7 @@ class SimulatedServer {
                             // vuol dire che l'errore non andava gestito a questo livello, ma a quello superiore
                             throw response
                         } finally {
-                            let tokenJSON = this.createSession(key, credentials.punti)
+                            let tokenJSON = this.createSession(key, newCredentialsCopy.points)
                             return new HttpResponse(201, "Created", JSON.stringify(tokenJSON))
                         }
                     }

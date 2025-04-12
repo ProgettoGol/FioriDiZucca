@@ -300,6 +300,10 @@ ul {
 
 /* HOVER */
 
+.hoverable:hover {
+    cursor: pointer;
+}
+
 .hoverable-orange:hover {
     background-image: radial-gradient(circle, var(--orange-subtle), var(--orange-subtle), var(--transparent), var(--transparent));
     cursor: pointer;
