@@ -4,6 +4,43 @@ class LogInForm {
         input.reportValidity()
     }
 
+    showMessage(message, success, milliseconds) {
+        let resultMessage = document.querySelector("#result_log_in p")
+        let resultDiv = document.getElementById("result_log_in");
+
+        resultMessage.textContent = message;
+        if(success) resultMessage.classList.add("text-success")
+        else resultMessage.classList.add("text-danger")
+
+        resultDiv.classList.remove("d-none")
+        resultDiv.classList.add("d-flex")
+
+        return new Promise( (resolve) => {
+            setTimeout(function() {
+                resultDiv.classList.remove("d-flex")
+                resultDiv.classList.add("d-none")
+                if(success) resultMessage.classList.remove("text-success")
+                else resultMessage.classList.remove("text-danger")
+                resolve()
+            }, milliseconds)
+        })
+    }
+
+    resetForm(...ids) {
+        let usernameInput = document.getElementById("username");
+        let passwordInput = document.getElementById("password");
+
+        let deleteAll = ids.length === 0;
+        
+        if(ids.includes(usernameInput.id) || deleteAll) {
+            usernameInput.value = "";
+        }
+
+        if(ids.includes(passwordInput.id) || deleteAll) {
+            passwordInput.value = "";
+        }
+    }
+
     #isUsernameNotValid(username) {
         return username.trim() === "";
     }
@@ -23,11 +60,13 @@ class LogInForm {
     }
 
     code400Handler(httpResponse) {
-        console.log("Errore durante il login. Riprovare")
+        this.showMessage("Errore durante il login. Riprovare", false, 3000)
+        this.resetForm()
     }
 
     code401Handler(httpResponse) {
-        console.log("Password errata. Riprovare")
+        this.showMessage("Password errata. Riprovare", false, 3000)
+        this.resetForm("password")
     }
 
     code403Handler(httpResponse) {
@@ -36,10 +75,10 @@ class LogInForm {
     }
 
     code404Handler(httpResponse) {
-        // Show error message, then wait a second and show modal
-        console.log("Utente non registrato")
-        let modal = new bootstrap.Modal(document.getElementById("sign_up_modal"))
-        modal.toggle()
+        // IMPLEMENTARE: inserire i dati del login (tranne la password) nel form di registrazione
+        this.resetForm()
+        this.showMessage("Utente non registrato", false, 1000)
+            .then(signUpForm.show)
     }
 
     onFormSubmit() {
@@ -66,5 +105,9 @@ class LogInForm {
 
         let httpResponse = httpRequest.databaseRequest("POST", "credenziali", username, JSON.stringify(credentials))
         httpRequest.handleResponse(httpResponse, null, this.code201Handler.bind(this), this.code400Handler.bind(this), this.code403Handler.bind(this), this.code401Handler.bind(this), this.code404Handler.bind(this), null)
+    }
+
+    init() {
+        
     }
 }

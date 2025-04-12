@@ -120,6 +120,11 @@
                                             <h1 class="m-0 roboto-condensed-bold text-m text-dark margin-responsive-y-3">LOGIN</h1>
                                             <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username" required>
                                             <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password" required>
+                                            <div id="result_log_in" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
+                                                <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                                    <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
+                                                </div>
+                                            </div>
                                             <div class="m-0 row">
                                                 <div class="p-0 col-12 d-flex justify-content-between">
                                                     <button type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
@@ -160,6 +165,12 @@
                                                     <div class="mb-3">
                                                         <label for="password" class="form-label">Password</label>
                                                         <input type="password" id="sign_up_password" class="form-control" placeholder="Password" required>
+                                                    </div>
+
+                                                    <div id="result_sign_up" class="d-none mb-3" role="alert">
+                                                        <div class="form-control rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                                            <p></p>
+                                                        </div>
                                                     </div>
                             
                                                     <button type="submit" class="btn btn-primary">Invia</button>

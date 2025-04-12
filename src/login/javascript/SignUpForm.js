@@ -4,6 +4,58 @@ class SignUpForm {
         input.reportValidity()
     }
 
+    showMessage(message, success, milliseconds) {
+        let resultMessage = document.querySelector("#result_sign_up p")
+        let resultDiv = document.getElementById("result_sign_up");
+
+        resultMessage.textContent = message;
+        if(success) resultMessage.classList.add("text-success")
+        else resultMessage.classList.add("text-danger")
+
+        resultDiv.classList.remove("d-none")
+        resultDiv.classList.add("d-flex")
+
+        return new Promise( (resolve) => {
+            setTimeout(function() {
+                resultDiv.classList.remove("d-flex")
+                resultDiv.classList.add("d-none")
+                if(success) resultMessage.classList.remove("text-success")
+                else resultMessage.classList.remove("text-danger")
+                resolve()
+            }, milliseconds)
+        })
+    }
+
+    show() {
+        let modal = new bootstrap.Modal(document.getElementById("sign_up_modal"))
+        modal.show()
+    }
+
+    resetForm(...ids) {
+        let usernameInput = document.getElementById("sign_up_username");
+        let nameInput = document.getElementById("sign_up_name");
+        let lastNameInput = document.getElementById("sign_up_last_name");
+        let passwordInput = document.getElementById("sign_up_password");
+
+        let deleteAll = ids.length === 0;
+        
+        if(ids.includes(usernameInput.id) || deleteAll) {
+            usernameInput.value = "";
+        }
+
+        if(ids.includes(nameInput.id) || deleteAll) {
+            nameInput.value = "";
+        }
+
+        if(ids.includes(lastNameInput.id) || deleteAll) {
+            lastNameInput.value = "";
+        }
+
+        if(ids.includes(passwordInput.id) || deleteAll) {
+            passwordInput.value = "";
+        }
+    }
+
     #isUsernameNotValid(username) {
         return username.trim() === "";
     }
@@ -33,7 +85,8 @@ class SignUpForm {
     }
 
     code400Handler(httpResponse) {
-        console.log("Errore durante la registrazione. Riprovare")
+        this.showMessage("Errore durante la registrazione. Riprovare", 3000)
+        this.resetForm()
     }
 
     code403Handler(httpResponse) {
@@ -42,7 +95,8 @@ class SignUpForm {
     }
 
     code409Handler(httpResponse) {
-        console.log("Username esistente")
+        this.showMessage("Username già in uso. Riprovare", 3000)
+        this.resetForm("sign_up_username")
     }
 
     onFormSubmit() {
@@ -80,6 +134,10 @@ class SignUpForm {
         let credentials = new Credentials(name, lastName, password, "signup")
 
         let httpResponse = httpRequest.databaseRequest("POST", "credenziali", username, JSON.stringify(credentials))
+
         httpRequest.handleResponse(httpResponse, null, this.code201Handler.bind(this), this.code400Handler.bind(this), this.code403Handler.bind(this), null, null, this.code409Handler.bind(this))
+    }
+
+    init() {
     }
 }
