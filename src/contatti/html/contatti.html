@@ -22,10 +22,12 @@
     <script src="/website/javascript/Server/SimulatedServer.js"></script>
     <script src="/website/javascript/Server/SimulatedDatabase.js"></script>
     <script src="/website/javascript/Sessione/SessionHandler.js"></script>
+    <script src="/website/MainWebsite.js"></script>
+
     <script src="/src/contatti/javascript/Prenotazione.js"></script>
     <script src="/src/contatti/javascript/DatePicker.js"></script>
-    <script src="/src/contatti/javascript/Form.js"></script>
-    <script src="/website/MainWebsite.js"></script>
+    <script src="/src/contatti/javascript/ReservationForm.js"></script>
+    <script src="/src/contatti/javascript/MainContatti.js"></script>
 </head>
 
 <body>
@@ -107,7 +109,7 @@
         </header>
 
         <section>
-            <form onsubmit="window.form.onFormSubmit(); return false;">
+            <form onsubmit="reservationForm.onFormSubmit(); return false;">
                 <div class="m-0 row padding-responsive-y-5">
                     <div class="p-0 col-2 col-lg-3"></div>
                     <div class="p-0 col-8 col-lg-6 d-flex flex-column">
@@ -117,7 +119,7 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="window.form.datePicker.onDateSelection()" required>
+                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="reservationForm.datePicker.onDateSelection()" required>
                             </div>
                         </div>
 

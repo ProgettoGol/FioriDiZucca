@@ -3,7 +3,7 @@
 // DEBUG: validazione dateInput -> non possono essere selezionate date non realmente esistenti (esempio: 29-02-2019)
 // DEBUG: validazione input -> il campo non deve essere uno spazio vuoto
 
-class Form {
+class ReservationForm {
     hideForm() {
         let formDivs = document.getElementsByClassName("form-div-js");
         for(const inputDiv of formDivs) {

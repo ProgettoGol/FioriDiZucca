@@ -7,3 +7,9 @@
 #login section {
     min-height: 100vh;
 }
+
+#login .center-modal {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

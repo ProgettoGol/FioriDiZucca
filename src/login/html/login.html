@@ -21,11 +21,14 @@
     <script src="/website/javascript/Server/Session.js"></script>
     <script src="/website/javascript/Server/SimulatedServer.js"></script>
     <script src="/website/javascript/Server/SimulatedDatabase.js"></script>
-    <script src="/src/login/javascript/Credentials.js"></script>
-    <script src="/src/login/javascript/LogInForm.js"></script>
-    <script src="/src/registrazione/javascript/SignUpForm.js"></script>
     <script src="/website/javascript/Sessione/SessionHandler.js"></script>
     <script src="/website/MainWebsite.js"></script>
+
+    <script src="/src/login/javascript/Credentials.js"></script>
+    <script src="/src/login/javascript/LogInForm.js"></script>
+    <script src="/src/login/javascript/SignUpForm.js"></script>
+    <script src="/src/login/javascript/MainLogin.js"></script>
+
 </head>
 
 <body>
@@ -115,9 +118,54 @@
                                             <h1 class="m-0 roboto-condensed-bold text-m text-dark margin-responsive-y-3">LOGIN</h1>
                                             <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username" required>
                                             <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password" required>
-                                            <button id="loginBtn" type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
+                                            <div class="m-0 row">
+                                                <div class="p-0 col-12 d-flex justify-content-between">
+                                                    <button type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
+                                                    <button type="button" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" data-bs-toggle="modal" data-bs-target="#sign_up_modal"> Registrati</button>        
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
+                                </div>
+
+                                <div id="sign_up_modal" class="modal fade" tabindex="-1">
+                                    <div class="center-modal modal-dialog">
+                                        <div class="modal-content">
+                            
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Registrazione</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                            
+                                            <div class="modal-body">
+                                                <form onsubmit="signUpForm.onFormSubmit(); return false;">
+                            
+                                                    <div class="mb-3">
+                                                        <label for="nome" class="form-label">Nome</label>
+                                                        <input type="text" id="sign_up_name" class="form-control" name="name" placeholder="Nome" required>
+                                                    </div>
+                            
+                                                    <div class="mb-3">
+                                                        <label for="cognome" class="form-label">Cognome</label>
+                                                        <input type="text" id="sign_up_last_name" class="form-control" name="lastName" placeholder="Cognome" required>
+                                                    </div>
+                            
+                                                    <div class="mb-3">
+                                                        <label for="username" class="form-label">Username</label>
+                                                        <input type="text" id="sign_up_username" class="form-control" name="username" placeholder="Username" required>
+                                                    </div>
+                            
+                                                    <div class="mb-3">
+                                                        <label for="password" class="form-label">Password</label>
+                                                        <input type="password" id="sign_up_password" class="form-control" placeholder="Password" required>
+                                                    </div>
+                            
+                                                    <button type="submit" class="btn btn-primary">Invia</button>
+                                                </form>
+                                            </div>
+                            
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="p-0 col-2"></div>

@@ -18,7 +18,7 @@ class LogInForm {
         let token = tokenJSON.token;
         let expirationDate = new Date(tokenJSON.expiration)
         document.cookie = `sessionToken=${token}; expires=${expirationDate.toUTCString()}; path=/;`;
-        location.replace("/src/html/areapersonale.html")
+        location.replace("/src/areapersonale/html/areapersonale.html")
         // HANDLING DELLA SESSIONE:
         // recupero della Sessione
         // Trasformazione del pulsante login
@@ -40,9 +40,10 @@ class LogInForm {
     }
 
     code404Handler(httpResponse) {
-        // XMLHTTPREQUEST -> popup della pagina di registrazione
-        // Per ora:
-        location.replace("/src/html/registrati.html")
+        // Show error message, then wait a second and show modal
+        console.log("Utente non registrato")
+        let modal = new bootstrap.Modal(document.getElementById("sign_up_modal"))
+        modal.toggle()
     }
 
     onFormSubmit() {
