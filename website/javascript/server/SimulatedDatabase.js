@@ -68,7 +68,7 @@ class SimulatedDatabase {
 
             for(const savedKey of Object.keys(resource)) {
                 if(!(savedKey === key)) {
-                    newResource[key] = resource[key]
+                    newResource[savedKey] = resource[savedKey]
                 }
             }
 

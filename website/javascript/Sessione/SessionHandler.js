@@ -1,6 +1,7 @@
 class SessionHandler {
     constructor() {
         this.isSessionActive = false;
+        this.sessionInfo = {};
     }
 
     getCookie(cname) {
@@ -21,7 +22,7 @@ class SessionHandler {
 
     code200Handler(httpResponse) {
         this.isSessionActive = true;
-        return JSON.parse(httpResponse.body);
+        this.sessionInfo = JSON.parse(httpResponse.body);
         // SESSION HANDLING
         // Trasformazione del pulsante login
         // Cambio degli href per l'area personale
@@ -46,7 +47,7 @@ class SessionHandler {
         let token = this.getCookie("sessionToken");
         if(token !== "") {
             let httpResponse = httpRequest.databaseRequest("GET", "sessions", token)
-            return httpRequest.handleResponse(httpResponse, this.code200Handler.bind(this), null, null, this.code403Handler.bind(this), null, this.code404Handler.bind(this), null, null)
+            httpRequest.handleResponse(httpResponse, this.code200Handler.bind(this), null, null, this.code403Handler.bind(this), null, this.code404Handler.bind(this), null, null)
         }
     }
 
@@ -55,7 +56,13 @@ class SessionHandler {
         if(token !== "") {
             document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             let httpResponse = httpRequest.databaseRequest("DELETE", "sessions", token)
-            httpRequest.handleResponse(httpResponse, null, null, null, this.code403Handler.bind(this), null, null, this.code204Handler.bind(this))
+            httpRequest.handleResponse(httpResponse, null, null, null, this.code403Handler.bind(this), null, null, null, this.code204Handler.bind(this))
+            if(window.location.pathname === "/src/areapersonale/html/areapersonale.html") {
+                window.location = "/"
+            } else {
+                // Necessario, perché il bottone di login e logout vengono caricati al load della pagina
+                window.location.reload()
+            }
         }
     }
 }

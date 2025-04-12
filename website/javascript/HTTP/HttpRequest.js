@@ -20,7 +20,8 @@ class HttpRequest {
     handleResponse(httpResponse, ...callbacks) {
         switch(httpResponse.code) {
             case 200: {
-                return callbacks[0](httpResponse)
+                callbacks[0](httpResponse)
+                break;
             }
             case 201: {
                 callbacks[1](httpResponse)

@@ -1,5 +1,5 @@
 var pointSystem = new PointSystem();
 
-document.addEventListener("DOMContentLoaded", event => {
+window.addEventListener("DOMContentLoaded", event => {
     pointSystem.init()
 })

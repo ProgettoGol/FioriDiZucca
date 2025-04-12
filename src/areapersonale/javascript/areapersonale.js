@@ -1,6 +1,6 @@
 class PointSystem {
     init() {
-        let sessionInfo = sessionHandler.retrieveSession()
+        let sessionInfo = sessionHandler.sessionInfo;
         let username = sessionInfo.username;
         let points = Number(sessionInfo.punti);
 
