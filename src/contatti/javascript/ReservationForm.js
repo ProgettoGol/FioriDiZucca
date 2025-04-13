@@ -3,122 +3,26 @@
 // DEBUG: validazione dateInput -> non possono essere selezionate date non realmente esistenti (esempio: 29-02-2019)
 // DEBUG: validazione input -> il campo non deve essere uno spazio vuoto
 
-class ReservationForm {
-    hideForm() {
-        let formDivs = document.getElementsByClassName("form-div-js");
-        for(const inputDiv of formDivs) {
-            // DEBUG: at onload, inputDiv.style.display === "". Why?
-            // if(inputDiv.style.display === "flex") {
-                inputDiv.style.display = "none";
-            // }
-        }
-    }
-
-    showForm() {
-        let formDivs = document.getElementsByClassName("form-div-js");
-        for(const inputDiv of formDivs) {
-            // if(inputDiv.style.display === "none") {
-                inputDiv.style.display = "flex";
-            // }
-        }
-    }
-
-    disableTimes(reservations) {
-        for(const reservation of reservations) {
-            let time = document.querySelector('option[value="' + reservation + '"]');
-            time.disabled = true;
-        }
-    }
-
-    init() {
-        this.datePicker = new DatePicker();
-        this.dateInput = this.datePicker.dateInput;
-        this.timeInput = document.getElementById("time");
-        this.nameInput = document.getElementById("name");
-        this.lastNameInput = document.getElementById("last_name");
-        this.emailInput = document.getElementById("email");
-        this.messageInput = document.getElementById("message");
-
-        let self = this;
-
-        function resetFormCallback(flag) {
-            self.resetForm(flag)
-        }
-
-        function disableTimesCallback(reservations) {
-            self.disableTimes(reservations)
-        }
-
-        function showFormCallback() {
-            self.showForm()
-        }
-
-        this.resetForm(true)
-        this.hideForm()
-        this.datePicker.disableTimesCallback = disableTimesCallback;
-        this.datePicker.resetFormCallback = resetFormCallback;
-        this.datePicker.showFormCallback = showFormCallback;
-        this.datePicker.init()
-    }
-
+class ReservationForm extends Form {
     resetForm(flag) {
-        // DEBUG: don't use an external flag: find another way to distinguish cases
-        if(flag) {
-            let times = document.querySelectorAll("option");
-            for(const time of times) {
-                if(time.disabled) time.disabled = false;
-            }
+        if(!flag) {
+            super.resetForm()
         } else {
-            let times = document.querySelectorAll("option");
-            let formDivs = document.getElementsByClassName("form-div-js");
-
-            this.dateInput.value = "";
-            this.timeInput.value = "";
-            this.nameInput.value = "";
-            this.lastNameInput.value = "";
-            this.emailInput.value = "";
-            this.messageInput.value = "";
-
-            // Non strettamente necessario, ma sempre meglio resettare tutti gli input
-            for(const time of times) {
-                if(time.disabled) time.disabled = false;
-            }
-
-            for(const input of formDivs) {
-                input.style.display = "none";
-            }
+            super.resetForm(this.timeInput)
         }
-    }
-
-    showMessage(message, success) {
-        let resultMessage = document.querySelector("#result p")
-        let resultDiv = document.getElementById("result");
-
-        resultMessage.textContent = message;
-        if(success) resultMessage.classList.add("text-success")
-        else resultMessage.classList.add("text-danger")
-
-        resultDiv.classList.remove("d-none")
-        resultDiv.classList.add("d-flex")
-
-        setTimeout(function() {
-            resultDiv.classList.remove("d-flex")
-            resultDiv.classList.add("d-none")
-            if(success) resultMessage.classList.remove("text-success")
-            else resultMessage.classList.remove("text-danger")
-        }, 3000)
+        this.timeInput.disableTimes()
     }
 
     code201Handler(httpResponse) {
         this.resetForm(false)
-        this.showMessage("Prenotazione effettuata con successo", true)
+        this.showMessage("Prenotazione effettuata con successo", true, 3000, "result_reservation")
     }
 
     code400Handler(httpResponse) {
         // Avviene solo nel caso in cui, dal lato client, sono state fatte modifiche al codice per cui è arrivato al server input non valido
         // Il server effettua di nuovo la validazione dell'input e ritorna un errore
-        this.resetForm()
-        this.showMessage("Errore durante la prenotazione. Riprovare", false)
+        this.resetForm(false)
+        this.showMessage("Errore durante la prenotazione. Riprovare", false, 3000, "result_reservation")
     }
 
     code403Handler(httpResponse) {
@@ -127,12 +31,66 @@ class ReservationForm {
     }
 
     onFormSubmit() {
-        let date = this.dateInput.value;
+        if(this.dateInput.isInputNotValid()) {
+            this.showCustomValidity(this.dateInput, 'Impossibile prenotare per la data selezionata')
+            return;
+        }
 
-        let prenotazione = new Prenotazione(this.timeInput.value, this.nameInput.value, this.lastNameInput.value, this.emailInput.value, this.messageInput.value)
+        if(this.timeInput.isInputNotValid()) {
+            this.showCustomValidity(this.timeInput, "Impossibile prenotare per l'orario selezionato")
+            return;
+        }
+
+        if(this.nameInput.isInputNotValid()) {
+            this.showCustomValidity(this.nameInput, 'Nome non valido')
+            return;
+        }
+
+        if(this.lastNameInput.isInputNotValid()) {
+            this.showCustomValidity(this.lastNameInput, 'Cognome non valido')
+            return;
+        }
+
+        if(this.emailInput.isInputNotValid()) {
+            this.showCustomValidity(this.emailInput, 'email non valida')
+        }
+
+        let prenotazione = new Prenotazione(this.timeInput.inputElement.value, this.nameInput.inputElement.value, this.lastNameInput.inputElement.value, this.emailInput.inputElement.value, this.messageInput.inputElement.value)
         prenotazione = JSON.stringify(prenotazione)
 
-        let httpResponse = httpRequest.databaseRequest("PUT", "prenotazioni", date, prenotazione);
+        let httpResponse = httpRequest.databaseRequest("PUT", "prenotazioni", this.dateInput.inputElement.value, prenotazione);
         httpRequest.handleResponse(httpResponse, null, this.code201Handler.bind(this), this.code400Handler.bind(this), this.code403Handler.bind(this))
+    }
+
+    init() {
+        this.dateInput = new DateInput(document.getElementById("date"));
+        this.timeInput = new TimeInput(document.getElementById("time"));
+        this.nameInput = new Input(document.getElementById("name"));
+        this.lastNameInput = new Input(document.getElementById("last_name"));
+        this.emailInput = new Input(document.getElementById("email"));
+        this.messageInput = new Input(document.getElementById("message"));
+
+        let self = this;
+
+        function resetFormCallback(flag) {
+            self.resetForm(flag)
+        }
+
+        function enableTimesCallback(reservations) {
+            self.timeInput.enableTimes(reservations)
+        }
+
+        function showCustomValidityCallback(input, message) {
+            self.showCustomValidity(input, message)
+        }
+
+        this.resetForm(false)
+        this.dateInput.enableTimesCallback = enableTimesCallback;
+        this.dateInput.resetFormCallback = resetFormCallback;
+        this.dateInput.showCustomValidityCallback = showCustomValidityCallback;
+        this.timeInput.showCustomValidityCallback = showCustomValidityCallback;
+        this.nameInput.showCustomValidityCallback = showCustomValidityCallback;
+        this.lastNameInput.showCustomValidityCallback = showCustomValidityCallback;
+        this.emailInput.showCustomValidityCallback = showCustomValidityCallback;
     }
 }

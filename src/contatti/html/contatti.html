@@ -22,10 +22,13 @@
     <script src="/website/javascript/Server/SimulatedServer.js"></script>
     <script src="/website/javascript/Server/SimulatedDatabase.js"></script>
     <script src="/website/javascript/Sessione/SessionHandler.js"></script>
+    <script src="/website/javascript/Input/Input.js"></script>
+    <script src="/website/javascript/Form/Form.js"></script>
     <script src="/website/MainWebsite.js"></script>
 
     <script src="/src/contatti/javascript/Prenotazione.js"></script>
-    <script src="/src/contatti/javascript/DatePicker.js"></script>
+    <script src="/src/contatti/javascript/DateInput.js"></script>
+    <script src="/src/contatti/javascript/TimeInput.js"></script>
     <script src="/src/contatti/javascript/ReservationForm.js"></script>
     <script src="/src/contatti/javascript/MainContatti.js"></script>
 </head>
@@ -113,13 +116,13 @@
                         <div class="m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
                                 <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" oninput="reservationForm.datePicker.onDateSelection()" required>
+                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" onblur="reservationForm.dateInput.onBlur()" oninput="reservationForm.dateInput.onInput()" required>
                             </div>
                         </div>
 
                         <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <select id="time" class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" required>
+                                <select id="time" class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" oninput="reservationForm.timeInput.onInput()" required>
                                     <option disabled selected hidden value="">Orario *</option>
                                     <option value="09:00">09:00</option>
                                     <option value="09:15">09:15</option>
@@ -175,17 +178,17 @@
 
                         <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-6">
-                                <input id="name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" required>
+                                <input id="name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" oninput="reservationForm.nameInput.onInput()" required>
                             </div>
 
                             <div class="p-0 col-6">
-                                <input id="last_name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" required>
+                                <input id="last_name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" oninput="reservationForm.lastNameInput.onInput()" required>
                             </div>
                         </div>
 
                         <div class="form-div-js m-0 row margin-responsive-y-1">
                             <div class="p-0 col-12">
-                                <input id="email" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" required>
+                                <input id="email" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" oninput="reservationForm.emailInput.onInput()" required>
                             </div>
                         </div>
 
@@ -201,7 +204,7 @@
                             </div>
                         </div>
 
-                        <div id="result" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
+                        <div id="result_reservation" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
                             <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
                                 <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
                             </div>
