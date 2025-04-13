@@ -47,7 +47,12 @@ class SessionHandler {
         let token = this.getCookie("sessionToken");
         if(token !== "") {
             let httpResponse = httpRequest.databaseRequest("GET", "sessions", token)
-            httpRequest.handleResponse(httpResponse, this.code200Handler.bind(this), null, null, this.code403Handler.bind(this), null, this.code404Handler.bind(this), null, null)
+
+            let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
+            successfulResponses[0] = this.code200Handler.bind(this);
+            clientErrorResponses[3] = this.code403Handler.bind(this);
+            clientErrorResponses[4] = this.code404Handler.bind(this);
+            httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
         }
     }
 
@@ -55,8 +60,14 @@ class SessionHandler {
         let token = this.getCookie("sessionToken");
         if(token !== "") {
             document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            
             let httpResponse = httpRequest.databaseRequest("DELETE", "sessions", token)
-            httpRequest.handleResponse(httpResponse, null, null, null, this.code403Handler.bind(this), null, null, null, this.code204Handler.bind(this))
+
+            let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
+            successfulResponses[4] = this.code204Handler.bind(this);
+            clientErrorResponses[3] = this.code403Handler.bind(this);
+            httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
+
             if(window.location.pathname === "/src/areapersonale/html/areapersonale.html") {
                 window.location = "/"
             } else {

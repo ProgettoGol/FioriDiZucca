@@ -40,7 +40,13 @@ class DateInput extends Input {
     onBlur() {
         if(this.changed) {
             let httpResponse = httpRequest.databaseRequest("GET", "prenotazioni", this.inputElement.value);
-            httpRequest.handleResponse(httpResponse, this.code200Handler.bind(this), null, this.code400Handler.bind(this), this.code403Handler.bind(this))
+
+            let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
+            successfulResponses[0] = this.code200Handler.bind(this);
+            clientErrorResponses[0] = this.code400Handler.bind(this);
+            clientErrorResponses[3] = this.code403Handler.bind(this);
+            httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
+
             this.changed = false;
         }
     }

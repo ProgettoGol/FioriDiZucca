@@ -11,44 +11,33 @@ class HttpRequest {
         }
     }
 
-    // DEBUG: inserire 5 array per ogni set di risposte HTTP:
-    // Informational responses (100 - 103)
-    // Successful responses (200 - 226)
-    // Redirection messages (300 - 308)
-    // Client error responses (400 - 451)
-    // Server error responses (500 - 511)
-    handleResponse(httpResponse, ...callbacks) {
-        switch(httpResponse.code) {
-            case 200: {
-                callbacks[0](httpResponse)
+    handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses) {
+        // Informational responses (100 - 103)
+        // Successful responses (200 - 226)
+        // Redirection messages (300 - 308)
+        // Client error responses (400 - 451)
+        // Server error responses (500 - 511)
+
+        let responseBlock;
+        switch(Number(String(httpResponse.code)[0])) {
+            case 1: {
+                responseBlock = informationalResponses;
                 break;
             }
-            case 201: {
-                callbacks[1](httpResponse)
+            case 2: {
+                responseBlock = successfulResponses;
                 break;
             }
-            case 204: {
-                callbacks[7](httpResponse)
+            case 3: {
+                responseBlock = redirectionMessages;
                 break;
             }
-            case 400: {
-                callbacks[2](httpResponse)
-                break;    
-            }
-            case 401: {
-                callbacks[4](httpResponse)
+            case 4: {
+                responseBlock = clientErrorResponses;
                 break;
             }
-            case 403: {
-                callbacks[3](httpResponse)
-                break;
-            }
-            case 404: {
-                callbacks[5](httpResponse)
-                break;
-            }
-            case 409: {
-                callbacks[6](httpResponse)
+            case 5: {
+                responseBlock = serverErrorResponses;
                 break;
             }
             default: {
@@ -56,5 +45,9 @@ class HttpRequest {
                 break;
             }
         }
+
+        let responsePosition = Number(String(httpResponse.code)[2]);
+
+        responseBlock[responsePosition](httpResponse)        
     }
 }

@@ -32,22 +32,62 @@ class Form {
         })
     }
 
-    resetForm(...ids) {
+    resetForm(...inputs) {
         // In assenza di parametri, resetta tutti i campi del form
         // Altrimenti, resetta solo i campi il cui id è stato passato come parametro
-        let resetAll = (ids.length === 0);
+
+        let resetAll = (inputs.length === 0);
         Reflect.ownKeys(this).forEach(key => {
-            let inputElement = this[key].inputElement;
-            if(inputElement instanceof HTMLElement) {
-                if(ids.includes(this[key]) || resetAll) {
-                    inputElement.value = "";
+            if(this[key] instanceof Input) {
+                let inputElement = this[key].inputElement;
+                if(inputElement instanceof HTMLElement) {
+                    if(inputs.includes(this[key]) || resetAll) {
+                        inputElement.value = "";
+                    }
                 }
             }
         })
     }
 
-    onFormSubmit() {
+    code403Handler(httpResponse) {
+        // Avviene solo nel caso in cui, dal lato client o con un attacco informatico,
+        // si cerca di accedere a risorse del database vietate
+        
+        console.error(httpResponse.code, httpResponse.message)
+    }
 
+    onFormSubmit(order, ...messages) {
+        // Verifica la validità di ogni oggetto Input attributo del Form
+        // Ritorna false se un input non è valido
+        // Il numero di messaggi defisce il numero di attributi dei quali viene verificata la validità (-> required)
+        // order è un array di indici che  permette di mostrare i messaggi di validazione nell'ordine preferito (rispetto all'ordine di definizione)
+        // I messaggi vanno passati nell'ordine prescelto
+
+        let keys = Reflect.ownKeys(this);
+        let inputs = [];
+        let skipCounter = 0;
+        for(let index = 0; index < (messages.length + skipCounter); index++) {
+            const key = keys[index]
+            if(this[key] instanceof Input) {
+                if(order.length === 0) {
+                    inputs.push(this[key])
+                } else {
+                    inputs[order[index - skipCounter]] = this[key]
+                }
+            } else {
+                skipCounter++;
+            }
+        }
+
+        for(let index = 0; index < messages.length; index++) {
+            const input = inputs[index]
+            if(input.isInputNotValid()) {
+                this.showCustomValidity(input, messages[index])
+                return false;
+            }
+        }
+
+        return true;
     }
 
     init() {
