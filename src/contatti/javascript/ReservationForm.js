@@ -33,10 +33,24 @@ class ReservationForm extends Form {
 
         let httpResponse = httpRequest.databaseRequest("PUT", "prenotazioni", this.dateInput.inputElement.value, prenotazione);
 
+        let self = this;
+
+        function code201Callback(httpResponse) {
+            self.code201Handler(httpResponse)
+        }
+
+        function code400Callback(httpResponse) {
+            self.code400Handler(httpResponse)
+        }
+
+        function code403Callback(httpResponse) {
+            self.code403Handler(httpResponse)
+        }
+
         let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
-        successfulResponses[1] = this.code201Handler.bind(this);
-        clientErrorResponses[0] = this.code400Handler.bind(this);
-        clientErrorResponses[3] = super.code403Handler.bind(this);
+        successfulResponses[1] = code201Callback;
+        clientErrorResponses[0] = code400Callback;
+        clientErrorResponses[3] = code403Callback;
         httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
     }
 

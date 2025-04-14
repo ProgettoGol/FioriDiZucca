@@ -48,10 +48,24 @@ class SessionHandler {
         if(token !== "") {
             let httpResponse = httpRequest.databaseRequest("GET", "sessions", token)
 
+            let self = this;
+
+            function code200Callback(httpResponse) {
+                self.code200Handler(httpResponse)
+            }
+
+            function code403Callback(httpResponse) {
+                self.code403Handler(httpResponse)
+            }
+
+            function code404Callback(httpResponse) {
+                self.code404Handler(httpResponse)
+            }
+
             let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
-            successfulResponses[0] = this.code200Handler.bind(this);
-            clientErrorResponses[3] = this.code403Handler.bind(this);
-            clientErrorResponses[4] = this.code404Handler.bind(this);
+            successfulResponses[0] = code200Callback;
+            clientErrorResponses[3] = code403Callback;
+            clientErrorResponses[4] = code404Callback;
             httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
         }
     }
@@ -63,9 +77,19 @@ class SessionHandler {
             
             let httpResponse = httpRequest.databaseRequest("DELETE", "sessions", token)
 
+            let self = this;
+
+            function code204Callback(httpResponse) {
+                self.code204Handler(httpResponse)
+            }
+
+            function code403Callback(httpResponse) {
+                self.code403Handler(httpResponse)
+            }
+
             let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
-            successfulResponses[4] = this.code204Handler.bind(this);
-            clientErrorResponses[3] = this.code403Handler.bind(this);
+            successfulResponses[4] = code204Callback;
+            clientErrorResponses[3] = code403Callback;
             httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
 
             if(window.location.pathname === "/src/areapersonale/html/areapersonale.html") {

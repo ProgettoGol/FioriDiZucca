@@ -41,10 +41,24 @@ class DateInput extends Input {
         if(this.changed) {
             let httpResponse = httpRequest.databaseRequest("GET", "prenotazioni", this.inputElement.value);
 
+            let self = this;
+
+            function code200Callback(httpResponse) {
+                self.code200Handler(httpResponse)
+            }
+
+            function code400Callback(httpResponse) {
+                self.code400Handler(httpResponse)
+            }
+
+            function code403Callback(httpResponse) {
+                self.code403Handler(httpResponse)
+            }
+
             let informationalResponses = [], successfulResponses = [], redirectionMessages = [], clientErrorResponses = [], serverErrorResponses = [];
-            successfulResponses[0] = this.code200Handler.bind(this);
-            clientErrorResponses[0] = this.code400Handler.bind(this);
-            clientErrorResponses[3] = this.code403Handler.bind(this);
+            successfulResponses[0] = code200Callback;
+            clientErrorResponses[0] = code400Callback;
+            clientErrorResponses[3] = code403Callback;
             httpRequest.handleResponse(httpResponse, informationalResponses, successfulResponses, redirectionMessages, clientErrorResponses, serverErrorResponses)
 
             this.changed = false;
