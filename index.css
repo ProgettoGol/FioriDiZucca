@@ -1,19 +1,9 @@
-/* MENU */
-/* DEBUG: da eliminare quando il menu sarà aggiunto dinamicamente (oppure potrebbe essere aggiunto al template) */
-
-.icon {
-    width: 2vw;
-}
-
-/* MENU */
-
 #fiori_di_zucca {
     background-image: url("/public/homepageSfondo.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-/* DEBUG: Si può rendere questo pezzo di codice sensato? */
 #main_content {
     background-image: url("/public/GrilledCheeseFoodGIF.gif");
     background-size: 130% 70%;

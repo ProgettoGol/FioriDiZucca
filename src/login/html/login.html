@@ -1,5 +1,3 @@
-<!-- DEBUG: le icone non si ridimensionano insieme alla pagina -->
-
 <!DOCTYPE html>
 <html lang="it">
 
@@ -37,165 +35,170 @@
 </head>
 
 <body>
-    <div id="login" class="p-0 container-fluid">
-        <header>
+    <div id="login">
 
-            <div class="m-0 row padding-responsive-y-3">
-                <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                    
-                    <nav>
-                        <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
-                            <img class="object-xs" src="/public/Icongridview.png">
-                        </button>
+        <div class="p-0 container-fluid">
+            <header>
 
-                        <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
-                            <div class="m-0 row padding-responsive-y-3">
-                                <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                                    <span>
-                                        <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
-                                            <img class="object-xs" src="/public/Icongridview.png">
-                                        </button>
-                                    </span>
+                <div class="m-0 row padding-responsive-y-3">
+                    <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                        
+                        <nav>
+                            <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                                <img class="object-xs" src="/public/Icongridview.png">
+                            </button>
+
+                            <div class="image-xl offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                                <div class="m-0 row padding-responsive-y-3">
+                                    <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                        <span>
+                                            <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                                <img class="object-xs" src="/public/Icongridview.png">
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
+
+                                <ul class="p-0 container-fluid">
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/personalAreaIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/restaurantMenuIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/reservationIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="/src/contatti/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
                             </div>
+                        </nav>
 
-                            <ul class="p-0 container-fluid">
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/personalAreaIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/restaurantMenuIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/reservationIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/contatti/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                    </div>
 
-                        </div>
-                    </nav>
+                    <div class="p-0 col-8"></div>
 
+                    <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
                 </div>
 
-                <div class="p-0 col-8"></div>
+            </header>
+        </div>
 
-                <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
-            </div>
+        <div class="p-0 container-fluid page-main d-flex flex-column justify-content-center">
+            <main>
+                <section>
 
-        </header>
+                    <div class="p-0 container-fluid">
+                        <div class="m-0 row">
+                            <div class="p-0 col-3"></div>
 
-        <main>
-            <section class="d-flex justify-content-center align-items-center">
+                            <div class="p-0 col-6">
+                                <div class="m-0 row">
+                                    <div class="p-0 col-2"></div>
 
-                <div class="p-0 container-fluid">
-                    <div class="m-0 row">
-                        <div class="p-0 col-3"></div>
-
-                        <div class="p-0 col-6">
-                            <div class="m-0 row">
-                                <div class="p-0 col-2"></div>
-
-                                <div class="p-0 col-8 rounded-responsive-1 background-orange padding-responsive-x-2">
-                                    <form onsubmit="logInForm.onFormSubmit(); return false;">
-                                        <div class="text-center">
-                                            <h1 class="m-0 roboto-condensed-bold text-m text-dark margin-responsive-y-3">LOGIN</h1>
-                                            <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username" oninput="logInForm.usernameInput.onInput()" required>
-                                            <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password" oninput="logInForm.passwordInput.onInput()" required>
-                                            <div id="result_log_in" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
-                                                <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
-                                                    <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
+                                    <div class="p-0 col-8 rounded-responsive-1 background-orange padding-responsive-x-2">
+                                        <form onsubmit="logInForm.onFormSubmit(); return false;">
+                                            <div class="text-center">
+                                                <h1 class="m-0 roboto-condensed-bold text-m text-dark margin-responsive-y-3">LOGIN</h1>
+                                                <input type="text" id="username" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="username"  placeholder="username" oninput="logInForm.usernameInput.onInput()" required>
+                                                <input type="password" id="password" class="object-xs p-0 border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-x-1 margin-responsive-y-1" name="password" placeholder="password" oninput="logInForm.passwordInput.onInput()" required>
+                                                <div id="result_log_in" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
+                                                    <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                                        <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="m-0 row">
+                                                    <div class="p-0 col-12 d-flex justify-content-between">
+                                                        <button type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
+                                                        <button type="button" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" data-bs-toggle="modal" data-bs-target="#sign_up_modal"> Registrati</button>        
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="m-0 row">
-                                                <div class="p-0 col-12 d-flex justify-content-between">
-                                                    <button type="submit" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" >Accedi</button>
-                                                    <button type="button" class="p-0 btn btn-primary border-responsive-1 text-s text-dark rounded-responsive-1 padding-responsive-1 margin-responsive-y-2" data-bs-toggle="modal" data-bs-target="#sign_up_modal"> Registrati</button>        
+                                        </form>
+                                    </div>
+
+                                    <div id="sign_up_modal" class="modal fade" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Registrazione</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div id="sign_up_modal" class="modal fade" tabindex="-1">
-                                    <div class="center-modal modal-dialog">
-                                        <div class="modal-content">
-                            
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Registrazione</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                            </div>
-                            
-                                            <div class="modal-body">
-                                                <form onsubmit="signUpForm.onFormSubmit(); return false;">
-                            
-                                                    <div class="mb-3">
-                                                        <label for="nome" class="form-label">Nome</label>
-                                                        <input type="text" id="sign_up_name" class="form-control" name="name" placeholder="Nome" oninput="signUpForm.nameInput.onInput()" required>
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <label for="cognome" class="form-label">Cognome</label>
-                                                        <input type="text" id="sign_up_last_name" class="form-control" name="lastName" placeholder="Cognome" oninput="signUpForm.lastNameInput.onInput()" required>
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <label for="username" class="form-label">Username</label>
-                                                        <input type="text" id="sign_up_username" class="form-control" name="username" placeholder="Username" oninput="signUpForm.usernameInput.onInput()" required>
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <label for="password" class="form-label">Password</label>
-                                                        <input type="password" id="sign_up_password" class="form-control" placeholder="Password" oninput="signUpForm.passwordInput.onInput()" required>
-                                                    </div>
-
-                                                    <div id="result_sign_up" class="d-none mb-3" role="alert">
-                                                        <div class="form-control rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
-                                                            <p></p>
+                                
+                                                <div class="modal-body">
+                                                    <form onsubmit="signUpForm.onFormSubmit(); return false;">
+                                
+                                                        <div class="mb-3">
+                                                            <label for="nome" class="form-label">Nome</label>
+                                                            <input type="text" id="sign_up_name" class="form-control" name="name" placeholder="Nome" oninput="signUpForm.nameInput.onInput()" required>
                                                         </div>
-                                                    </div>
-                            
-                                                    <button type="submit" class="btn btn-primary">Invia</button>
-                                                </form>
+                                
+                                                        <div class="mb-3">
+                                                            <label for="cognome" class="form-label">Cognome</label>
+                                                            <input type="text" id="sign_up_last_name" class="form-control" name="lastName" placeholder="Cognome" oninput="signUpForm.lastNameInput.onInput()" required>
+                                                        </div>
+                                
+                                                        <div class="mb-3">
+                                                            <label for="username" class="form-label">Username</label>
+                                                            <input type="text" id="sign_up_username" class="form-control" name="username" placeholder="Username" oninput="signUpForm.usernameInput.onInput()" required>
+                                                        </div>
+                                
+                                                        <div class="mb-3">
+                                                            <label for="password" class="form-label">Password</label>
+                                                            <input type="password" id="sign_up_password" class="form-control" placeholder="Password" oninput="signUpForm.passwordInput.onInput()" required>
+                                                        </div>
+
+                                                        <div id="result_sign_up" class="d-none mb-3" role="alert">
+                                                            <div class="form-control rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                
+                                                        <button type="submit" class="btn btn-primary">Invia</button>
+                                                    </form>
+                                                </div>
+                                
                                             </div>
-                            
                                         </div>
                                     </div>
+
+                                    <div class="p-0 col-2"></div>
                                 </div>
-
-                                <div class="p-0 col-2"></div>
                             </div>
-                        </div>
 
-                        <div class="p-0 col-3"></div>
-                    </div> 
-                </div>
-                
-            </section>
-        </main>
+                            <div class="p-0 col-3"></div>
+                        </div> 
+                    </div>
+                    
+                </section>
+            </main>
+        </div>
 
     </div>
 </body>

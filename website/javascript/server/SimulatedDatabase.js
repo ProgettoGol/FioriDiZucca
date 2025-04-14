@@ -1,3 +1,5 @@
+// IMPLEMENT: Gestire le risposte 404 direttamente a livello del database
+
 class SimulatedDatabase {
     initResource(item) {
         localStorage.setItem(item, JSON.stringify({}))

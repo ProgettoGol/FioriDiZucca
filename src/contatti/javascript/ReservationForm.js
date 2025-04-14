@@ -1,6 +1,6 @@
-// DEBUG: validazione timeInput -> orari superiori agli orari di chiusura (compreso il sabato) non validi
-// DEBUG: validazione timeInput -> orari non ogni 15 minuti non validi
-// DEBUG: validazione dateInput -> non possono essere selezionate date non realmente esistenti (esempio: 29-02-2019)
+// IMPLEMENT: validazione timeInput -> orari superiori agli orari di chiusura (compreso il sabato) non validi
+// IMPLEMENT: validazione timeInput -> orari non ogni 15 minuti non validi
+// IMPLEMENT: validazione dateInput -> non possono essere selezionate date non realmente esistenti (esempio: 29-02-2019)
 
 class ReservationForm extends Form {
     resetForm(flag) {

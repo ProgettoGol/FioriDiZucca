@@ -1,12 +1,3 @@
-/* MENU */
-/* DEBUG: da eliminare quando il menu sarà aggiunto dinamicamente (oppure potrebbe essere aggiunto al template) */
-
-.icon {
-    width: 2vw;
-}
-
-/* MENU */
-
 #riserva_un_tavolo {
     background-image: url("/public/Reservation.gif");
     background-size: cover;

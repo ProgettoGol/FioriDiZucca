@@ -79,10 +79,6 @@ class SimulatedServer {
         return tokenJSON;
     }
 
-    deleteSession(token) {
-
-    }
-
     handleDatabaseRequest(type, item, key, body) {
         if(type === 'GET') { //Simula una richiesta "GET item/key"
 
@@ -153,7 +149,7 @@ class SimulatedServer {
                 throw new HttpResponse(403, "Forbidden")
             }
 
-        } else if(type === 'POST') {
+        } else if(type === 'POST') { //Simula una richiesta "POST item/key body"
             
             if(item === 'credenziali') {
 
@@ -220,7 +216,7 @@ class SimulatedServer {
             } else {
                 throw new HttpResponse(403, "Forbidden")
             }
-        } else if(type === 'DELETE') {
+        } else if(type === 'DELETE') { //Simula una richiesta "DELETE item/key"
 
             if(item === "sessions") {
                 try {

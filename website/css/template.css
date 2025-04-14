@@ -3,14 +3,13 @@ DEBUG:
 - Font size decreases too much as screen size get decreased
 - Page cannot be zoomed in on laptops: browsers don't actually zoom in, they simulate a smaller viewport.
 POSSIBLE SOLUTIONS:
-- Adjust --responsive-unit dynamically in javascript to follow a logarithmic scale
+- Adjust --responsive-unit dynamically in javascript to follow a logarithmic scale (logarithmic growth or something along the lines of 1 - (1 / (x+1)))
 - Add a base size in pixels to --responsive-unit (e.g. 1vw + 0.2px). This way content will still be responsive, but it will also be zoomed in.
   I believe we had better create a responsive unit for text only, or any other content we need to be "zoomable" (there is no advantage in zooming in on paddings, borders, and margins)
 - Another solution would be to make the viewport scrollable as you zoom in (min-width e max-width)
 */
 
-/* ROOT */
-* {
+:root {
     --light-green: #18A118;
     --dark-green: #007100;
     --yellow: #FFCC00;
@@ -27,17 +26,30 @@ POSSIBLE SOLUTIONS:
     /* DEFAULT VALUES */
     --text-shadow-color: var(--dark);
 
-    /* JAVASCRIPT: The best solution would be a logarithmic growth or something along the lines of 1 - (1 / (x+1)) */
-    --responsive-unit: 1vw;
-    --responsive-unit-visible: var(--responsive-unit) + 1px;
+    --responsive-limit: 400px;
+}
+
+/* ROOT */
+@media screen and (min-width: 401px) {
+    * {
+        --responsive-unit: 1vw;
+        --responsive-unit-visible: var(--responsive-unit) + 1px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    * {
+        --responsive-unit: calc(var(--responsive-limit) / 100);
+        --responsive-unit-visible: var(--responsive-unit) + 1px;
+    }
 }
 
 /* HTML SEMANTIC ELEMENTS */
 
 body {
-    /* DEBUG: Trova un modo per bloccare la responsiveness degli elementi al raggiungimento della min-width */
-    /* DEBUG: Trova un modo per aggiustare l'altezza della pagina, che al ridursi della larghezza diventa troppo 'corta' */
-    min-width: 300px;
+    /* DEBUG: Trova un modo per aggiustare l'altezza della pagina index, che al ridursi della larghezza diventa troppo 'corta' */
+    /* DEBUG: Aumentare l'altezza degli elementi in proporzione all'aumento dell'altezza della pagina */
+    min-width: var(--responsive-limit);
 }
 
 p {
@@ -296,6 +308,44 @@ ul {
 .object-xs {
     width: 100% !important;
     height: calc(5 * var(--responsive-unit)) !important;
+}
+
+.image-xl {
+    width: calc(25 * var(--responsive-unit)) !important;
+}
+
+.image-l {
+    width: calc(20 * var(--responsive-unit)) !important;
+}
+
+.image-m {
+    width: calc(15 * var(--responsive-unit)) !important;
+}
+
+.image-s {
+    width: calc(10 * var(--responsive-unit)) !important;
+}
+
+/* COMPONENTS */
+
+.page-main {
+    min-height: 100vh;
+}
+
+.page-main-three-quarters {
+    min-height: 75vh;
+}
+
+.page-main-half {
+    min-height: 50vh;
+}
+
+.page-main-quarter {
+    min-height: 25vh;
+}
+
+.icon {
+    width: calc(2 * var(--responsive-unit));
 }
 
 /* HOVER */

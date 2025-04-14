@@ -34,221 +34,228 @@
 </head>
 
 <body>
-    <div id="riserva_un_tavolo" class="p-0 container-fluid">
+    <div id="riserva_un_tavolo">
 
-        <header>
-            <div class="m-0 row padding-responsive-y-3">
-                <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                    <nav>
-                        <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
-                            <img class="object-xs" src="/public/Icongridview.png">
-                        </button>
+        <div class="p-0 container-fluid">
+            <header>
+                <div class="m-0 row padding-responsive-y-3">
+                    <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                        <nav>
+                            <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                                <img class="object-xs" src="/public/Icongridview.png">
+                            </button>
 
-                        <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
-                            <div class="m-0 row padding-responsive-y-3">
-                                <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                                    <span>
-                                        <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
-                                            <img class="object-xs" src="/public/Icongridview.png">
-                                        </button>
-                                    </span>
+                            <div class="image-xl offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                                <div class="m-0 row padding-responsive-y-3">
+                                    <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                        <span>
+                                            <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                                <img class="object-xs" src="/public/Icongridview.png">
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <ul class="p-0 container-fluid">
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/personalAreaIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/restaurantMenuIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/reservationIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="#riserva_un_tavolo">Riserva un tavolo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </nav>
+                    </div>
+
+                    <div class="p-0 col-8">
+                        <h1 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center text-center">Riserva un tavolo</h2>
+                    </div>
+
+                    <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
+                </div>
+            </header>
+        </div>
+
+        <div class="p-0 container-fluid page-main-three-quarters d-flex flex-column justify-content-center">
+            <section>
+                <form onsubmit="reservationForm.onFormSubmit(); return false;">
+                    <div class="m-0 row padding-responsive-y-5">
+                        <div class="p-0 col-2 col-lg-3"></div>
+                        <div class="p-0 col-8 col-lg-6 d-flex flex-column">
+
+                            <!-- DEBUG: risolvere il problema della grandezza della freccia del select -->
+
+                            <div class="m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-12">
+                                    <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" onblur="reservationForm.dateInput.onBlur()" oninput="reservationForm.dateInput.onInput()" required>
                                 </div>
                             </div>
 
-                            <ul class="p-0 container-fluid">
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/personalAreaIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/restaurantMenuIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/cosaoffriamo/html/cosaoffriamo.html">Cosa offriamo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/reservationIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="#riserva_un_tavolo">Riserva un tavolo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </nav>
-                </div>
-
-                <div class="p-0 col-8">
-                    <h1 class="object-xs roboto-condensed-regular text-light text-xl d-flex align-items-center justify-content-center text-center">Riserva un tavolo</h2>
-                </div>
-
-                <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
-                <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
-            </div>
-        </header>
-
-        <section>
-            <form onsubmit="reservationForm.onFormSubmit(); return false;">
-                <div class="m-0 row padding-responsive-y-5">
-                    <div class="p-0 col-2 col-lg-3"></div>
-                    <div class="p-0 col-8 col-lg-6 d-flex flex-column">
-
-                        <!-- DEBUG: risolvere il problema della grandezza della freccia del select -->
-
-                        <div class="m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-12">
-                                <!-- JAVASCRIPT: Se possibile, tenere aperto -->
-                                <input id="date" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-1" type="date" name="date" onblur="reservationForm.dateInput.onBlur()" oninput="reservationForm.dateInput.onInput()" required>
-                            </div>
-                        </div>
-
-                        <div class="form-div-js m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-12">
-                                <select id="time" class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" oninput="reservationForm.timeInput.onInput()" required>
-                                    <option disabled selected hidden value="">Orario *</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="09:15">09:15</option>
-                                    <option value="09:30">09:30</option>
-                                    <option value="09:45">09:45</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="10:15">10:15</option>
-                                    <option value="10:30">10:30</option>
-                                    <option value="10:45">10:45</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="11:15">11:15</option>
-                                    <option value="11:30">11:30</option>
-                                    <option value="11:45">11:45</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="12:15">12:15</option>
-                                    <option value="12:30">12:30</option>
-                                    <option value="12:45">12:45</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="13:15">13:15</option>
-                                    <option value="13:30">13:30</option>
-                                    <option value="13:45">13:45</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="14:15">14:15</option>
-                                    <option value="14:30">14:30</option>
-                                    <option value="14:45">14:45</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="15:15">15:15</option>
-                                    <option value="15:30">15:30</option>
-                                    <option value="15:45">15:45</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="16:15">16:15</option>
-                                    <option value="16:30">16:30</option>
-                                    <option value="16:45">16:45</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="17:15">17:15</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="17:45">17:45</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:15">18:15</option>
-                                    <option value="18:30">18:30</option>
-                                    <option value="18:45">18:45</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:15">19:15</option>
-                                    <option value="19:30">19:30</option>
-                                    <option value="19:45">19:45</option>
-                                    <option value="20:00">20:00</option>
-                                    <option value="20:15">20:15</option>
-                                    <option value="20:30">20:30</option>
-                                    <option value="20:45">20:45</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-div-js m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-6">
-                                <input id="name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" oninput="reservationForm.nameInput.onInput()" required>
+                            <div class="form-div-js m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-12">
+                                    <select id="time" class="p-0 form-select rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" name="time" oninput="reservationForm.timeInput.onInput()" required>
+                                        <option disabled selected hidden value="">Orario *</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="09:15">09:15</option>
+                                        <option value="09:30">09:30</option>
+                                        <option value="09:45">09:45</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="10:15">10:15</option>
+                                        <option value="10:30">10:30</option>
+                                        <option value="10:45">10:45</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="11:15">11:15</option>
+                                        <option value="11:30">11:30</option>
+                                        <option value="11:45">11:45</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="12:15">12:15</option>
+                                        <option value="12:30">12:30</option>
+                                        <option value="12:45">12:45</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="13:15">13:15</option>
+                                        <option value="13:30">13:30</option>
+                                        <option value="13:45">13:45</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="14:15">14:15</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="14:45">14:45</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="15:15">15:15</option>
+                                        <option value="15:30">15:30</option>
+                                        <option value="15:45">15:45</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="16:15">16:15</option>
+                                        <option value="16:30">16:30</option>
+                                        <option value="16:45">16:45</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="17:15">17:15</option>
+                                        <option value="17:30">17:30</option>
+                                        <option value="17:45">17:45</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="18:15">18:15</option>
+                                        <option value="18:30">18:30</option>
+                                        <option value="18:45">18:45</option>
+                                        <option value="19:00">19:00</option>
+                                        <option value="19:15">19:15</option>
+                                        <option value="19:30">19:30</option>
+                                        <option value="19:45">19:45</option>
+                                        <option value="20:00">20:00</option>
+                                        <option value="20:15">20:15</option>
+                                        <option value="20:30">20:30</option>
+                                        <option value="20:45">20:45</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <div class="p-0 col-6">
-                                <input id="last_name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" oninput="reservationForm.lastNameInput.onInput()" required>
-                            </div>
-                        </div>
+                            <div class="form-div-js m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-6">
+                                    <input id="name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="name" value="" placeholder="Nome *" oninput="reservationForm.nameInput.onInput()" required>
+                                </div>
 
-                        <div class="form-div-js m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-12">
-                                <input id="email" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" oninput="reservationForm.emailInput.onInput()" required>
+                                <div class="p-0 col-6">
+                                    <input id="last_name" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="last_name" value="" placeholder="Cognome *" oninput="reservationForm.lastNameInput.onInput()" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-div-js m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-12">
-                                <textarea id="message" class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
+                            <div class="form-div-js m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-12">
+                                    <input id="email" class="p-0 form-control rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="email" name="email" value="" placeholder="Indirizzo email *" oninput="reservationForm.emailInput.onInput()" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-div-js m-0 row margin-responsive-y-1">
-                            <div class="p-0 col-12">
-                                <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="submit">Submit</button>
+                            <div class="form-div-js m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-12">
+                                    <textarea id="message" class="p-0 form-control object-l rounded-responsive-1 border border-responsive-1 border-grey indie-flower-regular text-dark text-s padding-responsive-x-1" type="text" name="message" placeholder="Inserisci una nota"></textarea>
+                                </div>
                             </div>
-                        </div>
 
-                        <div id="result_reservation" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
-                            <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
-                                <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
+                            <div class="form-div-js m-0 row margin-responsive-y-1">
+                                <div class="p-0 col-12">
+                                    <button class="p-0 btn rounded-responsive-5 border border-responsive-1 border-grey background-yellow-subtle indie-flower-regular text-dark text-s padding-responsive-x-1" type="submit">Submit</button>
+                                </div>
                             </div>
-                        </div>
 
+                            <div id="result_reservation" class="d-none object-xs m-0 row margin-responsive-y-1" role="alert">
+                                <div class="p-0 col-12 rounded-responsive-1 border border-responsive-1 border-grey background-light d-flex align-items-center justify-content-center">
+                                    <p class="indie-flower-bold text-s padding-responsive-x-1"></p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="p-0 col-2 col-lg-3"></div> 
                     </div>
-                    <div class="p-0 col-2 col-lg-3"></div> 
-                </div>
-            </form>
-        </section>
+                </form>
+            </section>
+        </div>
+
     </div>
 
-    <div id="come_raggiungerci" class="p-0 container-fluid">
+    <div id="come_raggiungerci">
 
-        <header>
-            <div class="m-0 row padding-responsive-y-3">
-                <div class="p-0 col-12 d-flex align-items-start justify-content-center">
-                    <h2 class="roboto-condensed-regular text-light text-xl">Come raggiungerci</h2>
-                </div>
-            </div>
-        </header>
-
-        <section>
-            <div class="m-0 row padding-responsive-y-3">
-                <div class="p-0 col-12 d-flex justify-content-center">
-                    <div class="m-0 row">
-                        <div class="p-0 col-12 d-flex flex-column justify-content-center padding-responsive-x-3">
-                            <p class="list-group-item roboto-condensed-regular text-s text-light">Via delle Conce 20, 00154, Roma (RM)</p>
-                            <a class="list-group-item roboto-condensed-regular text-s text-light" href="tel:+39062548651">062548651</a>
-                            <a class="list-group-item roboto-condensed-regular text-s text-light" href="mailto:fioridizucca@hotmail.it">fioridizucca@hotmail.it</a>
-                        </div>
-                    </div>
-                    <div class="w-50 m-0 row">
-                        <div class="p-0 col-12 padding-responsive-x-3">
-                            <iframe class="object-xl rounded-responsive-1"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.8708960107847!2d12.4756713754788!3d41.8741240712421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f602c006d51b5%3A0x63c7afa1af787a0f!2sVia%20delle%20Conce%2C%2020%2C%2000154%20Roma%20RM!5e0!3m2!1sen!2sit!4v1742290815830!5m2!1sen!2sit"
-                                width="" height="" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
+        <div class="p-0 container-fluid">
+            <header>
+                <div class="m-0 row padding-responsive-y-3">
+                    <div class="p-0 col-12 d-flex align-items-start justify-content-center">
+                        <h2 class="roboto-condensed-regular text-light text-xl">Come raggiungerci</h2>
                     </div>
                 </div>
-            </div>
-        </section>
+            </header>
+        </div>
+
+        <div class="p-0 container-fluid page-main-quarter d-flex flex-column justify-content-center">
+            <section>
+                <div class="m-0 row padding-responsive-y-3">
+                    <div class="p-0 col-12 d-flex justify-content-center">
+                        <div class="m-0 row">
+                            <div class="p-0 col-12 d-flex flex-column justify-content-center padding-responsive-x-3">
+                                <p class="list-group-item roboto-condensed-regular text-s text-light">Via delle Conce 20, 00154, Roma (RM)</p>
+                                <a class="list-group-item roboto-condensed-regular text-s text-light" href="tel:+39062548651">062548651</a>
+                                <a class="list-group-item roboto-condensed-regular text-s text-light" href="mailto:fioridizucca@hotmail.it">fioridizucca@hotmail.it</a>
+                            </div>
+                        </div>
+                        <div class="w-50 m-0 row">
+                            <div class="p-0 col-12 padding-responsive-x-3">
+                                <iframe class="object-xl rounded-responsive-1"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.8708960107847!2d12.4756713754788!3d41.8741240712421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f602c006d51b5%3A0x63c7afa1af787a0f!2sVia%20delle%20Conce%2C%2020%2C%2000154%20Roma%20RM!5e0!3m2!1sen!2sit!4v1742290815830!5m2!1sen!2sit"
+                                    width="" height="" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
     </div>
 

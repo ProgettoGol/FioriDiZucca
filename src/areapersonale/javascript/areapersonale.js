@@ -1,3 +1,5 @@
+// IMPLEMENT: Aggiungere un modo per aumentare i punti. Si potrebbe fare all'onclick del qr code
+
 class PointSystem {
     init() {
         let sessionInfo = sessionHandler.sessionInfo;

@@ -23,15 +23,10 @@ class SessionHandler {
     code200Handler(httpResponse) {
         this.isSessionActive = true;
         this.sessionInfo = JSON.parse(httpResponse.body);
-        // SESSION HANDLING
-        // Trasformazione del pulsante login
-        // Cambio degli href per l'area personale
-        // Creazione dell'area personale, con i punti
     }
 
     code204Handler(httpResponse) {
         this.isSessionActive = false;
-        // RESET pagine allo stato iniziale (pre-login)
     }
 
     code403Handler(httpResponse) {

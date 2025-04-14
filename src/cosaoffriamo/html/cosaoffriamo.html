@@ -27,272 +27,275 @@
 
 <body>
 
-    <div id="cosa_offriamo" class="p-0 container-fluid">
+    <div id="cosa_offriamo">
 
-        <header>
-            <div class="m-0 row padding-responsive-y-3">
-                <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                    <nav>
-                        <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
-                            <img class="object-xs" src="/public/Icongridview.png">
-                        </button>
+        <div class="p-0 container-fluid">
+            <header>
+                <div class="m-0 row padding-responsive-y-3">
+                    <div class="p-0 col-2 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                        <nav>
+                            <button id="menu" type="button" class="p-0 border-0 background-transparent d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+                                <img class="object-xs" src="/public/Icongridview.png">
+                            </button>
 
-                        <div class="w-25 offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
-                            <div class="m-0 row padding-responsive-y-3">
-                                <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
-                                    <span>
-                                        <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
-                                            <img class="object-xs" src="/public/Icongridview.png">
-                                        </button>
-                                    </span>
+                            <div class="image-xl offcanvas offcanvas-start background-dark" data-bs-scroll="true" tabindex="-1" id="offcanvas">
+                                <div class="m-0 row padding-responsive-y-3">
+                                    <div class="p-0 col-12 d-flex align-items-start justify-content-start padding-responsive-x-3">
+                                        <span>
+                                            <button type="button" class="p-0 border-0 background-transparent d-flex" data-bs-dismiss="offcanvas">
+                                                <img class="object-xs" src="/public/Icongridview.png">
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
+
+                                <ul class="p-0 container-fluid">
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/personalAreaIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/restaurantMenuIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="#">Cosa offriamo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
+                                                <img class="icon" src="/public/reservationIcon.png">
+                                            </div>
+                                        </div>
+                                        <div class="m-0 row">
+                                            <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
+                                                <a class="list-group-item text-xs" href="/src/contatti/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <ul class="p-0 container-fluid">
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/personalAreaIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div id="link_login_div" class="hoverable p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center"></div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/restaurantMenuIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="#">Cosa offriamo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="object-xs roboto-condensed-regular text-dark-green d-flex align-items-center">
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-3 d-flex justify-content-start align-items-center">
-                                            <img class="icon" src="/public/reservationIcon.png">
-                                        </div>
-                                    </div>
-                                    <div class="m-0 row">
-                                        <div class="p-0 col-12 padding-responsive-x-1 d-flex justify-content-start align-items-center">
-                                            <a class="list-group-item text-xs" href="/src/contatti/html/contatti.html#riserva_un_tavolo">Riserva un tavolo</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        </nav>
+                    </div>
 
-                    </nav>
+                    <div class="p-0 col-8">
+                        <h1 class="object-xs roboto-condensed-regular text-dark text-xl d-flex align-items-center justify-content-center text-center">Cosa Offriamo</h2>
+                    </div>
+
+                    <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
                 </div>
+            </header>
+        </div>
 
-                <div class="p-0 col-8">
-                    <h1 class="object-xs roboto-condensed-regular text-dark text-xl d-flex align-items-center justify-content-center text-center">Cosa Offriamo</h2>
-                </div>
+        <div class="p-0 container-fluid page-main d-flex flex-column justify-content-center">
+            <main>
+                <div class="m-0 row">
 
-                <!-- JAVASCRIPT: una volta effettuato il login, il bottone login si deve trasformare in username + logout -->
-                <div id="login_div" class="p-0 col-2 d-flex align-items-start justify-content-end padding-responsive-x-3"></div>
-            </div>
-        </header>
+                    <!-- EMPTY COLUMN -->
+                    <div class="p-0 col-1"></div>
 
-        <main>
-            <div class="m-0 row">
+                    <!-- MENU COLUMN -->
+                    <div class="p-0 col-10">
 
-                <!-- EMPTY COLUMN -->
-                <div class="p-0 col-1"></div>
+                        <div class="m-0 row border-top border-bottom border-responsive-5 border-dark-green margin-responsive-y-5">
 
-                <!-- MENU COLUMN -->
-                <div class="p-0 col-10">
+                            <!-- PRANZO COLUMN -->
+                            <div class="p-0 col-12 col-lg-6 border border-responsive-1 border-light-green background-brown padding-responsive-x-3 margin-responsive-y-5">
 
-                    <div class="m-0 row border-top border-bottom border-responsive-5 border-dark-green margin-responsive-y-5">
+                                <section>
+                                    <header class="border-bottom border-responsive-3 border-light-green text-center margin-responsive-x-3 padding-responsive-y-5">
+                                        <h3 class="indie-flower-regular text-yellow text-l margin-responsive-y-3">Pranzo</h3>
+                                        <h3 class="indie-flower-regular text-light-green text-l margin-responsive-y-3">73€</h3>
+                                    </header>
 
-                        <!-- PRANZO COLUMN -->
-                        <div class="p-0 col-12 col-lg-6 border border-responsive-1 border-light-green background-brown padding-responsive-x-3 margin-responsive-y-5">
+                                    <ul class="margin-responsive-x-5">
 
-                            <section>
-                                <header class="border-bottom border-responsive-3 border-light-green text-center margin-responsive-x-3 padding-responsive-y-5">
-                                    <h3 class="indie-flower-regular text-yellow text-l margin-responsive-y-3">Pranzo</h3>
-                                    <h3 class="indie-flower-regular text-light-green text-l margin-responsive-y-3">73€</h3>
-                                </header>
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Fiori di zucca ripieni</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                <ul class="margin-responsive-x-5">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Fiori di zucca con le foglie di shiso</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Fiori di zucca ripieni</p>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Combo: fiori di zucca + cicoria ripassata</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Fiori di zucca con le foglie di shiso</p>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Quando arrivi scopri che voja c'ha il cuoco</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    </ul>
+                                </section>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Combo: fiori di zucca + cicoria ripassata</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                    </li>
+                            </div>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Quando arrivi scopri che voja c'ha il cuoco</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </section>
+                            <!-- CENA COLUMN -->
+                            <div class="p-0 col-12 col-lg-6 border border-responsive-1 border-light-green background-brown padding-responsive-x-3 margin-responsive-y-5">
 
-                        </div>
+                                <section>
+                                    <header class="border-bottom border-responsive-3 border-light-green text-center margin-responsive-x-3 padding-responsive-y-5">
+                                        <h3 class="indie-flower-regular text-yellow text-l margin-responsive-y-3">Cena</h3>
+                                        <h3 class="indie-flower-regular text-light-green text-l margin-responsive-y-3">90€</h3>
+                                    </header>
 
-                        <!-- CENA COLUMN -->
-                        <div class="p-0 col-12 col-lg-6 border border-responsive-1 border-light-green background-brown padding-responsive-x-3 margin-responsive-y-5">
+                                    <ul class="margin-responsive-x-5">
 
-                            <section>
-                                <header class="border-bottom border-responsive-3 border-light-green text-center margin-responsive-x-3 padding-responsive-y-5">
-                                    <h3 class="indie-flower-regular text-yellow text-l margin-responsive-y-3">Cena</h3>
-                                    <h3 class="indie-flower-regular text-light-green text-l margin-responsive-y-3">90€</h3>
-                                </header>
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Pesto di fiori di zucca</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                <ul class="margin-responsive-x-5">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Frittelle di fiori di zucca</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Pesto di fiori di zucca</p>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Fiori di zucca crunchy</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                        <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
+                                            <div class="m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Frittelle di fiori di zucca</p>
+                                            <div class="m-0 row margin-responsive-x-1 w-100">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <p class="w-100 text-s text-center text-lg-start">Quelli che prepara tua nonna, per conciliarti il sonno</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
+                                            <div class="d-lg-none m-0 row margin-responsive-x-1">
+                                                <div class="p-0 col-12 d-flex align-items-center">
+                                                    <img class="icon" src="/public/Iconflatware.png">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Fiori di zucca crunchy</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                    </li>
+                                    </ul>
+                                </section>
 
-                                    <li class="object-s indie-flower-regular text-yellow d-flex justify-content-center align-items-center margin-responsive-y-3">
-                                        <div class="m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                        <div class="m-0 row margin-responsive-x-1 w-100">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <p class="w-100 text-s text-center text-lg-start">Quelli che prepara tua nonna, per conciliarti il sonno</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-lg-none m-0 row margin-responsive-x-1">
-                                            <div class="p-0 col-12 d-flex align-items-center">
-                                                <img class="icon" src="/public/Iconflatware.png">
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </section>
+                            </div>
 
                         </div>
 
                     </div>
 
+                    <!-- EMPTY COLUMN -->
+                    <div class="p-0 col-1"></div>
+
                 </div>
-
-                <!-- EMPTY COLUMN -->
-                <div class="p-0 col-1"></div>
-
-            </div>
-        </main>
+            </main>
+        </div>
 
     </div>
 

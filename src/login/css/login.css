@@ -3,13 +3,3 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-
-#login section {
-    min-height: 100vh;
-}
-
-#login .center-modal {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
